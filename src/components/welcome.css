@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(./src/assets/images/banner-car.png);
+  background-image: url(/public/images/banner-car.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

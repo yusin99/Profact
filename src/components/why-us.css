@@ -15,7 +15,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-image: url(./src/assets/images/banner-car.png);
+    background-image: url(/public/images/banner-car.png);
     z-index: 2;
     top: -20%;
     left: -20%;
@@ -138,7 +138,7 @@
     width: 140%;
     height: 140%;
     opacity: .90;
-    background-image: url(.src/assets/images/fun-facts-bg.png);
+    background-image: url(/public/images/banner-car.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -171,7 +171,7 @@
     height: 32px;
     top: 160px;
     left: 70%;
-    background: url(../images/circle-dec.png) center center no-repeat;
+    /* background: url(/public/images/circle-dec.png) center center no-repeat; */
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -189,7 +189,7 @@
     height: 32px;
     top: 140px;
     left: 70%;
-    background: url(../images/circle-dec.png) center center no-repeat;
+    /* background: url(/src/assets/images/circle-dec.png) center center no-repeat; */
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;

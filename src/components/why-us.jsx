@@ -17,42 +17,42 @@ function WhyUsSection() {
                 <div className="row">
                     <div className="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" className="mini-box">
-                            <i><img src="./src/assets/images/work-process-item-01.png" alt="" /></i>
+                            <i><img src="/images/work-process-item-01.png" alt="" /></i>
                             <strong>Parce que X</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" className="mini-box">
-                            <i><img src="./src/assets/images/work-process-item-01.png" alt="" /></i>
+                            <i><img src="/images/work-process-item-01.png" alt="" /></i>
                             <strong>Parce que X</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" className="mini-box">
-                            <i><img src="./src/assets/images/work-process-item-01.png" alt="" /></i>
+                            <i><img src="/images/work-process-item-01.png" alt="" /></i>
                             <strong>Parce que X</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" className="mini-box">
-                            <i><img src="./src/assets/images/work-process-item-01.png" alt="" /></i>
+                            <i><img src="/images/work-process-item-01.png" alt="" /></i>
                             <strong>Parce que X</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" className="mini-box">
-                            <i><img src="./src/assets/images/work-process-item-01.png" alt="" /></i>
+                            <i><img src="/images/work-process-item-01.png" alt="" /></i>
                             <strong>Parce que X</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" className="mini-box">
-                            <i><img src="./src/assets/images/work-process-item-01.png" alt="" /></i>
+                            <i><img src="/images/work-process-item-01.png" alt="" /></i>
                             <strong>Parce que X</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>

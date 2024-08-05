@@ -15,7 +15,7 @@ function BigFeatureTwo() {
                 </div>
                 <div className="col-lg-1"></div>
                 <div className="col-lg-5 col-md-12 col-sm-12 align-self-center mobile-bottom-fix-big" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                    <img src="./src/assets/images/right-image-car.png" className="rounded img-fluid d-block mx-auto" alt="App" />
+                    <img src="/images/right-image-car.png" className="rounded img-fluid d-block mx-auto" alt="App" />
                 </div>
             </div>
         </div>
