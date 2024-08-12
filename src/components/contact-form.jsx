@@ -28,7 +28,8 @@ function ContactForm() {
       });
       return; // Stop form submission
     }
-
+    // 4d6d5b1f-6b49-404b-ba3b-3710509b8342
+    // 092f0141-7712-4483-87c6-e46023db5328
     formData.append("access_key", "092f0141-7712-4483-87c6-e46023db5328");
 
     const object = Object.fromEntries(formData);
@@ -62,7 +63,7 @@ function ContactForm() {
         <div className="contact-form-placement row">
           <div className="col-lg-12">
             <div className="center-heading">
-              <h2 className="section-title">Talk To Us</h2>
+              <h2 className="section-title">Contact</h2>
             </div>
           </div>
           <div className="col-lg-6">

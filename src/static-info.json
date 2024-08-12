@@ -1,0 +1,175 @@
+{
+  "pricingPlans": [
+    {
+      "id": 1,
+      "title": "30 dossiers",
+      "price": "333",
+      "period": "Tarif mensuel (€ HT)",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "50 dossiers",
+      "price": "549.50",
+      "period": "monthly",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "70 dossiers",
+      "price": "743",
+      "period": "monthly",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "90 dossiers",
+      "price": "944.10",
+      "period": "monthly",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "110 dossiers",
+      "price": "1122",
+      "period": "monthly",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 6,
+      "title": "130 doissiers",
+      "price": "1313",
+      "period": "monthly",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 7,
+      "title": "170 dossiers",
+      "price": "1650.70",
+      "period": "monthly",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 8,
+      "title": "190 doissiers",
+      "price": "1806.90",
+      "period": "monthly",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 9,
+      "title": "200 dossiers",
+      "price": "1880",
+      "period": "monthly",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    }
+  ],
+  "otherInfo": {
+    "sectionTitle": "Tarification",
+    "sectionSubtitle": "Choisissez le plan adapté à vos besoins"
+  },
+  "features": {
+    "bigFeatureOne": {
+      "title": "Préremplissage automatique des cessions de créance",
+      "image": "/images/left-image-car.png",
+      "text": "Plus de saisie manuelle répétitive—nos outils intelligents préremplissent les documents nécessaires pour accélérer vos transactions"
+    },
+    "bigFeatureTwo": {
+      "title": "Sélection des éléments des véhicules",
+      "image": "/images/right-image-car.png",
+      "text": "Identifiez et sélectionnez facilement les parties du véhicule impliquées dans le sinistre pour une documentation précise et rapide"
+    },
+    "bigFeatureThree": {
+      "title": "Chiffrage automatique",
+      "image": "/images/left-image-car.png",
+      "text": "Notre système calcule instantanément le coût des réparations nécessaires, garantissant ainsi une estimation rapide et fiable pour vous et les assurances"
+    },
+    "bigFeatureFour": {
+      "title": "Prévisualisation de la facture",
+      "image": "/images/right-image-car.png",
+      "text": "Vérifiez et ajustez les détails de vos factures avant envoi, assurant une transparence totale et une satisfaction client accrue"
+    },
+    "bigFeatureFive": {
+      "title": "Envoi en lettre recommandée électronique aux assurances",
+      "image": "/images/right-image-car.png",
+      "text": "Optez pour la sécurité et la rapidité avec l'envoi électronique de documents importants, directement depuis notre plateforme"
+    },
+    "bigFeatureSix": {
+      "title": "Relances à J+20",
+      "text": "Automatisez les relances pour les paiements en retard, réduisant le temps de suivi et améliorant le flux de trésorerie.",
+      "image": "/images/right-image-car.png"
+    }
+  },
+  "homeWelcomeText": {
+    "h1" : "Assez de passer des heures sur vos dossiers Bris de Glaces et carrosseries ??? ",
+    "paragraph" : "« Enfin une solution efficace qui vous fais gagner du temps »",
+    "buttonText": "Découvrez plus"
+  },
+  "tarificationWelcomeText": {
+    "h1" : "Tarification",
+    "paragraph" : "« Texte pour tarification »"
+  }
+}

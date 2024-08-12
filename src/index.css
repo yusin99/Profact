@@ -83,16 +83,6 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-::selection {
-  background: #ff589e;
-  color: #fff;
-}
-
-::-moz-selection {
-  background: #ff589e;
-  color: #fff;
-}
-
 .section {
   position: relative;
   padding-top: 60px;
@@ -100,7 +90,7 @@ body {
 }
 
 .section.colored {
-  background: #f2f2fe;
+  background: #f4f4f4 ;
 }
 
 .hr {

@@ -9,52 +9,53 @@ function WhyUsSection() {
                     <div className="offset-lg-3 col-lg-6">
                         <div className="info">
                             <h1>Pourquoi notre solution?</h1>
-                            <p>Aenean nec tempor metus. Maecenas ligula dolor, commodo in imperdiet interdum, vehicula ut ex. Donec ante diam.</p>
+                            {/* <p>Aenean nec tempor metus. Maecenas ligula dolor, commodo in imperdiet interdum, vehicula ut ex. Donec ante diam.</p> */}
                         </div>
                     </div>
                 </div>
 
                 <div className="row">
-                    <div className="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div className="col-lg-4 col-lg-4 col-sm-12 col-12 d-flex align-items-stretch">
                         <a href="#" className="mini-box">
                             <i><img src="/images/work-process-item-01.png" alt="" /></i>
-                            <strong>Parce que X</strong>
-                            <span>Godard pabst prism fam cliche.</span>
+                            <strong>Automatisation complète</strong>
+                            <span>De la constitution du dossier en passant par la réception et la relance des paiements</span>
                         </a>
                     </div>
-                    <div className="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div className="col-lg-4 col-lg-4 col-sm-12 col-12 d-flex align-items-stretch">
                         <a href="#" className="mini-box">
                             <i><img src="/images/work-process-item-01.png" alt="" /></i>
-                            <strong>Parce que X</strong>
-                            <span>Godard pabst prism fam cliche.</span>
+                            <strong>Gestion des documents</strong>
+                            <span>Transmission sécurisée et rapide</span>
                         </a>
                     </div>
-                    <div className="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div className="col-lg-4 col-lg-4 col-sm-12 col-12 d-flex align-items-stretch">
                         <a href="#" className="mini-box">
                             <i><img src="/images/work-process-item-01.png" alt="" /></i>
-                            <strong>Parce que X</strong>
-                            <span>Godard pabst prism fam cliche.</span>
+                            <strong>Précision accrue</strong>
+                            <span>Moins d'erreurs humaines grâce à l'automatisation.
+                            </span>
                         </a>
                     </div>
-                    <div className="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div className="col-lg-4 col-lg-4 col-sm-12 col-12 d-flex align-items-stretch">
                         <a href="#" className="mini-box">
                             <i><img src="/images/work-process-item-01.png" alt="" /></i>
-                            <strong>Parce que X</strong>
-                            <span>Godard pabst prism fam cliche.</span>
+                            <strong>Rapidité de traitement</strong>
+                            <span>Dossiers traités et clos plus rapidement</span>
                         </a>
                     </div>
-                    <div className="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div className="col-lg-4 col-lg-4 col-sm-12 col-12 d-flex align-items-stretch">
                         <a href="#" className="mini-box">
                             <i><img src="/images/work-process-item-01.png" alt="" /></i>
-                            <strong>Parce que X</strong>
-                            <span>Godard pabst prism fam cliche.</span>
+                            <strong>Réduction des coûts</strong>
+                            <span>Moins de temps passé par dossier signifie moins de dépenses en main-d'œuvre</span>
                         </a>
                     </div>
-                    <div className="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div className="col-lg-4 col-lg-4 col-sm-12 col-12 d-flex align-items-stretch">
                         <a href="#" className="mini-box">
                             <i><img src="/images/work-process-item-01.png" alt="" /></i>
-                            <strong>Parce que X</strong>
-                            <span>Godard pabst prism fam cliche.</span>
+                            <strong>Satisfaction client améliorée</strong>
+                            <span> Des processus rapides et transparents augmentent la confiance client</span>
                         </a>
                     </div>
                 </div>

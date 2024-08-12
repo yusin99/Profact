@@ -112,7 +112,7 @@
   .mini .mini-content .mini-box span {
     display: block;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     color: #777;
     letter-spacing: .75px;
   }
@@ -120,7 +120,7 @@
   .mini .mini-content .mini-box strong {
     display: block;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 14px;
     color: #1e1e1e;
     letter-spacing: 0.25px;
     margin-bottom: 5px;
@@ -262,3 +262,21 @@
       margin-top: 0px;
     }
   }
+
+  .mini .mini-content .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .mini .mini-content .col-lg-4 {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mini .mini-content .mini-box {
+    flex-grow: 1; /* Ensure the box stretches to fill the column height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+  }
+  

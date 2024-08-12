@@ -1,21 +1,36 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from 'react-scroll';
 import './welcome.css';
 
-function Welcome() {
+function Welcome({ h1, paragraph, buttonText }) {
   return (
     <div className="welcome-area" id="welcome">
-        <div className="header-text">
-            <div className="container">
-                <div className="row">
-                    <div className="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
-                        <h1>Message d'accueil <strong>fort</strong><br />pour attirer <strong>l'attention</strong></h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis excepturi illum doloribus.</p>
-                        <Link to="features" className="main-button-slider" spy={true} smooth={true} offset={50} duration={500} activeClass="active">Découvrez plus</Link>
-                    </div>
-                </div>
+      <div className="header-text">
+        <div className="container">
+          <div className="row" style={{ justifyContent: "center" }}>
+            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12">
+              <h1>{h1}</h1>
+              {paragraph && (
+                <p>{paragraph}</p>
+              )}
+              {buttonText && (
+                <Link 
+                  to="features" 
+                  className="main-button-slider" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={50} 
+                  duration={500} 
+                  activeClass="active"
+                >
+                  {buttonText}
+                </Link>
+              )}
             </div>
+          </div>
         </div>
+      </div>
     </div>
   );
 }

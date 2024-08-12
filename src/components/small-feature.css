@@ -82,3 +82,23 @@
       margin-top: 0px;
     }
   }
+
+
+  /* small-feature.css */
+
+@media (max-width: 767.98px) { /* Bootstrap's breakpoint for small screens */
+  .home-feature .features-small-item {
+      width: 100%;
+      display: block;
+  }
+}
+
+.home-feature .features-small-item {
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .home-feature .d-flex {
+      display: flex;
+  }
+}

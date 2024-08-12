@@ -7,33 +7,44 @@ function SmallFeature() {
         <div className="row">
             <div className="col-lg-12">
                 <div className="row">
-                    <div className="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                    <div className="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
                         <div className="features-small-item">
                             <div className="icon">
                                 <i><img src="/images/featured-item-01.png" alt=""/></i>
                             </div>
-                            <h5 className="features-title">Fonction de la solution</h5>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, ducimus?</p>
+                            <h5 className="features-title">Edition Automatique</h5>
+                            <p> des factures, déclarations de sinistres et des cessions de créance. 
+                            </p>
                         </div>
                     </div>
 
-                    <div className="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
+                    <div className="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
                         <div className="features-small-item">
                             <div className="icon">
                                 <i><img src="/images/featured-item-01.png" alt=""/></i>
                             </div>
-                            <h5 className="features-title">Fonction de la solution</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, doloribus!</p>
+                            <h5 className="features-title">Envoie Automatique</h5>
+                            <p> par recommandé </p>
                         </div>
                     </div>
 
-                    <div className="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
+                    <div className="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
                         <div className="features-small-item">
                             <div className="icon">
                                 <i><img src="/images/featured-item-01.png" alt=""/></i>
                             </div>
-                            <h5 className="features-title">Fonction de la solution</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, omnis.</p>
+                            <h5 className="features-title">Relance mail automatique</h5>
+                            <p>de tous vos dossier impayé ( biensure avec le renvoie complet de tous les documents )</p>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
+                        <div className="features-small-item">
+                            <div className="icon">
+                                <i><img src="/images/featured-item-01.png" alt=""/></i>
+                            </div>
+                            <h5 className="features-title">Disponible sur </h5>
+                            <p>Tablette / PC / Portable</p>
                         </div>
                     </div>
                 </div>
