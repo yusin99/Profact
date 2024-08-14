@@ -21,6 +21,9 @@ function Header() {
                 <li>
                   <Link to="/mentions-legales" className={currentPath === '/mentions-legales' ? 'active' : ''}>Mentions légales</Link>
                 </li>
+                <li>
+                  <Link to="/cgu" className={currentPath === '/cgu' ? 'active' : ''}>CGU</Link>
+                </li>
                 {/* <li>
                   <Link to="/work-process" className={currentPath === '/work-process' ? 'active' : ''}>Notre solution</Link>
                 </li>

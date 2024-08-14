@@ -171,5 +171,7 @@
   "tarificationWelcomeText": {
     "h1" : "Tarification",
     "paragraph" : "« Texte pour tarification »"
-  }
+  },
+  "cguText": "",
+  "mentionsLegalesText": ""
 }
