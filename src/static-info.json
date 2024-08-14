@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "30 dossiers",
-      "price": "333",
+      "price": "343.50",
       "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
@@ -17,7 +17,7 @@
     {
       "id": 2,
       "title": "50 dossiers",
-      "price": "549.50",
+      "price": "565",
       "period": "monthly",
       "features": [
         "Lorem, ipsum dolor.",
@@ -31,7 +31,7 @@
     {
       "id": 3,
       "title": "70 dossiers",
-      "price": "743",
+      "price": "784",
       "period": "monthly",
       "features": [
         "Lorem, ipsum dolor.",
@@ -45,7 +45,7 @@
     {
       "id": 4,
       "title": "90 dossiers",
-      "price": "944.10",
+      "price": "967.50",
       "period": "monthly",
       "features": [
         "Lorem, ipsum dolor.",
@@ -59,7 +59,7 @@
     {
       "id": 5,
       "title": "110 dossiers",
-      "price": "1122",
+      "price": "1151.70",
       "period": "monthly",
       "features": [
         "Lorem, ipsum dolor.",
@@ -73,7 +73,7 @@
     {
       "id": 6,
       "title": "130 doissiers",
-      "price": "1313",
+      "price": "1345.50",
       "period": "monthly",
       "features": [
         "Lorem, ipsum dolor.",
@@ -87,7 +87,7 @@
     {
       "id": 7,
       "title": "170 dossiers",
-      "price": "1650.70",
+      "price": "1686.40",
       "period": "monthly",
       "features": [
         "Lorem, ipsum dolor.",
@@ -101,7 +101,7 @@
     {
       "id": 8,
       "title": "190 doissiers",
-      "price": "1806.90",
+      "price": "1844.90",
       "period": "monthly",
       "features": [
         "Lorem, ipsum dolor.",
@@ -115,7 +115,7 @@
     {
       "id": 9,
       "title": "200 dossiers",
-      "price": "1880",
+      "price": "1930",
       "period": "monthly",
       "features": [
         "Lorem, ipsum dolor.",
