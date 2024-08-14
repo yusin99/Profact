@@ -3,7 +3,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import Swal from "sweetalert2";
-import "./contact-form.css";
+import "../ContactForm/contact-form.css"
 import { loadStripe } from '@stripe/stripe-js';
 
 // Initialize Stripe (put this outside of your component)
@@ -56,8 +56,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     }
 
     setFiles((prevFiles) => ({ ...prevFiles, [name]: file }));
-};
-
+  };
 
   const validateStep = () => {
     let errors = [];
@@ -78,12 +77,16 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
       if (!numberPattern.test(formData.capital)) {
         errors.push("Le capital doit contenir uniquement des chiffres.");
       }
+      
+      if (formData.nomSociete.length > 40) {
+        errors.push("Le nom de la société ne doit pas dépasser 40 caractères.");
+      }
     }
 
     if (step === 3) {
-      const phonePattern = /^\d+$/;
+      const phonePattern = /^\d{10}$/;
       if (!phonePattern.test(formData.telephone)) {
-        errors.push("Le téléphone doit contenir uniquement des chiffres.");
+        errors.push("Le téléphone doit contenir 10 chiffres.");
       }
     }
 
@@ -248,8 +251,10 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                           placeholder="Nom de la Société"
                           value={formData.nomSociete}
                           onChange={handleChange}
+                          maxLength="40"
                           required
                         />
+                        <p className="note">Si une même entité juridique SIREN dispose de plusieurs centres avec SIRET différent, ajouter "1" ou "2" après le nom.</p>
                       </fieldset>
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
@@ -319,18 +324,19 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                           placeholder="Téléphone"
                           value={formData.telephone}
                           onChange={handleChange}
+                          maxLength="10"
                           required
                         />
                       </fieldset>
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>Nom du Dirigeant</label>
+                        <label>Nom Dirigeant</label>
                         <input
                           name="nomDirigeant"
                           type="text"
                           className="form-control"
-                          placeholder="Nom du Dirigeant"
+                          placeholder="Nom Dirigeant"
                           value={formData.nomDirigeant}
                           onChange={handleChange}
                           required
@@ -339,27 +345,41 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>Prénom du Dirigeant</label>
+                        <label>Prénom Dirigeant</label>
                         <input
                           name="prenomDirigeant"
                           type="text"
                           className="form-control"
-                          placeholder="Prénom du Dirigeant"
+                          placeholder="Prénom Dirigeant"
                           value={formData.prenomDirigeant}
                           onChange={handleChange}
                           required
                         />
                       </fieldset>
                     </div>
-                    <div className="col-lg-6 col-md-12 col-sm-12">
+                    <div className="col-lg-12 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>URL de Vos Factures</label>
+                        <label>URL VosFactures</label>
                         <input
                           name="urlVosFactures"
                           type="text"
                           className="form-control"
-                          placeholder="URL de Vos Factures"
+                          placeholder="URL VosFactures"
                           value={formData.urlVosFactures}
+                          onChange={handleChange}
+                          required
+                        />
+                      </fieldset>
+                    </div>
+                    <div className="col-lg-12 col-md-12 col-sm-12">
+                      <fieldset>
+                        <label>API Key VosFactures</label>
+                        <input
+                          name="apiKeyVosFactures"
+                          type="text"
+                          className="form-control"
+                          placeholder="API Key VosFactures"
+                          value={formData.apiKeyVosFactures}
                           onChange={handleChange}
                           required
                         />
@@ -382,20 +402,6 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                   <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>API Key Vos Factures</label>
-                        <input
-                          name="apiKeyVosFactures"
-                          type="text"
-                          className="form-control"
-                          placeholder="API Key Vos Factures"
-                          value={formData.apiKeyVosFactures}
-                          onChange={handleChange}
-                          required
-                        />
-                      </fieldset>
-                    </div>
-                    <div className="col-lg-6 col-md-12 col-sm-12">
-                      <fieldset>
                         <label>Taux Horaire HT</label>
                         <input
                           name="tauxHoraireHt"
@@ -410,7 +416,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>Date d'Édition du Kbis</label>
+                        <label>Date d'édition du Kbis</label>
                         <input
                           name="dateEditionKbis"
                           type="date"
@@ -423,39 +429,25 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>Crédit Abonnement</label>
+                        <label>Crédit d'Abonnement</label>
                         <input
                           name="creditAbonnement"
-                          type="number"
+                          type="text"
                           className="form-control"
-                          placeholder="Crédit Abonnement"
+                          placeholder="Crédit d'Abonnement"
                           value={formData.creditAbonnement}
                           onChange={handleChange}
                           required
                         />
                       </fieldset>
                     </div>
-                    <div className="col-lg-12">
-                      <fieldset>
-                        <button type="button" onClick={handlePrevious} className="main-button">
-                          Previous
-                        </button>
-                        <button type="button" onClick={handleNext} className="main-button">
-                          Next
-                        </button>
-                      </fieldset>
-                    </div>
-                  </div>
-                )}
-
-                {step === 5 && (
-                  <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>Cachet</label>
+                        <label>Cachet de la société (PNG/JPG)</label>
                         <input
                           name="cachet"
                           type="file"
+                          accept=".png, .jpg"
                           className="form-control"
                           onChange={handleFileChange}
                           required
@@ -464,10 +456,11 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>Kbis</label>
+                        <label>Kbis (PNG/JPG)</label>
                         <input
                           name="kbis"
                           type="file"
+                          accept=".png, .jpg"
                           className="form-control"
                           onChange={handleFileChange}
                           required
@@ -476,10 +469,11 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>RIB</label>
+                        <label>RIB (PNG/JPG)</label>
                         <input
                           name="rib"
                           type="file"
+                          accept=".png, .jpg"
                           className="form-control"
                           onChange={handleFileChange}
                           required
@@ -488,10 +482,11 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>CNI</label>
+                        <label>CNI Dirigeant (PNG/JPG)</label>
                         <input
                           name="cni"
                           type="file"
+                          accept=".png, .jpg"
                           className="form-control"
                           onChange={handleFileChange}
                           required
@@ -504,7 +499,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                           Previous
                         </button>
                         <button type="submit" className="main-button">
-                          Submit
+                          VALIDER
                         </button>
                       </fieldset>
                     </div>

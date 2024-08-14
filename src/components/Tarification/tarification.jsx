@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import './tarification.css';
-import Card from './Card/card';
+import Card from '../Card/card';
 
 function Tarification({ staticInfo }) { // Use destructuring correctly to get staticInfo prop
   const [data, setData] = useState({ pricingPlans: [], otherInfo: {} });

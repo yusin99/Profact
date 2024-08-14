@@ -65,3 +65,10 @@ footer {
     }
   }
   
+  .footer-links a{
+    color: white !important;
+    padding: 20px 0 0 0;
+  }
+  .footer-links a:hover{
+    color: #00ad6a !important;
+  }

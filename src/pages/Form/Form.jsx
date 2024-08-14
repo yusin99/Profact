@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Loader from './../../components/loader';
-import Header from './../../components/header';
-import Footer from './../../components/footer';
-import Welcome from './../../components/welcome';
-import MultiPartForm from '../../components/multipartform';
 import staticInfo from "../../static-info.json";
-import Card from './../../components/Card/card';
+import Loader from '../../components/Loader/loader';
+import Header from '../../components/Header/header';
+import Footer from '../../components/Footer/footer';
+import Welcome from '../../components/Welcome/welcome';
+import Card from '../../components/Card/card';
+import MultiPartForm from './../../components/MultiPartForm/multipartform';
 
 function Form() {
   useEffect(() => {

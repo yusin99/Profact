@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import Swal from "sweetalert2";
 import "./contact-form.css";
@@ -28,14 +29,12 @@ function ContactForm() {
       });
       return; // Stop form submission
     }
-    // 4d6d5b1f-6b49-404b-ba3b-3710509b8342
-    // 092f0141-7712-4483-87c6-e46023db5328
-    formData.append("access_key", "092f0141-7712-4483-87c6-e46023db5328");
+    formData.append("access_key", import.meta.env.VITE_CONTACT_FORM_WEB_KEY);
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    const res = await fetch("https://api.web3forms.com/submit", {
+    const res = await fetch(import.meta.env.VITE_API_WEB_FORM, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,15 +1,15 @@
-import Loader from './../../components/loader';
-import Header from './../../components/header';
-import Welcome from './../../components/welcome';
-import SmallFeature from './../../components/small-feature';
-import BigFeatureLeft from '../../components/big-feature-left';
-import BigFeatureRight from '../../components/big-feature-right';
-import Tarification from './../../components/tarification';
-import WhyUsSection from './../../components/why-us';
-import ContactForm from './../../components/contact-form';
-import Footer from './../../components/footer';
+import Loader from '../../components/Loader/loader';
+import Header from '../../components/Header/header';
+import Welcome from '../../components/Welcome/welcome';
+import SmallFeature from '../../components/SmallFeatures/small-feature';
+import Tarification from '../../components/Tarification/tarification';
+import WhyUsSection from '../../components/WhyUs/why-us';
+import ContactForm from '../../components/ContactForm/contact-form';
+import Footer from '../../components/Footer/footer';
 import staticInfo from "../../static-info.json";
 import { useEffect } from 'react';
+import BigFeatureLeft from '../../components/FeaturesComponents/big-feature-left';
+import BigFeatureRight from '../../components/FeaturesComponents/big-feature-right';
 
 function Home() {
   const { features, pricingPlans, otherInfo, homeWelcomeText } = staticInfo;

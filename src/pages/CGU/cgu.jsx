@@ -1,7 +1,8 @@
-import Footer from "../../components/footer"
-import Header from "../../components/header"
-import Loader from "../../components/loader"
-import Welcome from "../../components/welcome"
+import Footer from "../../components/Footer/footer"
+import Header from "../../components/Header/header"
+import Loader from "../../components/Loader/loader"
+import Welcome from "../../components/Welcome/welcome"
+
 
 function CGU() {
   return (
