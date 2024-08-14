@@ -29,28 +29,22 @@ function Header() {
     };
   }, [isMenuActive]);
 
+  useEffect(() => {
+    // This effect runs when the location changes
+    if (window.innerWidth < 991) {
+      setIsMenuActive(false);
+      if (navRef.current) {
+        navRef.current.style.display = 'none';
+      }
+    }
+    // Scroll to top of page on route change
+    window.scrollTo(0, 0);
+  }, [location]);
+
   const toggleMenu = () => {
     setIsMenuActive(!isMenuActive);
     if (navRef.current) {
       navRef.current.style.display = isMenuActive ? 'none' : 'block';
-    }
-  };
-
-  const handleLinkClick = (e) => {
-    const target = document.querySelector(e.target.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      const width = window.innerWidth;
-      if (width < 991) {
-        setIsMenuActive(false);
-        if (navRef.current) {
-          navRef.current.style.display = 'none';
-        }
-      }
-      window.scrollTo({
-        top: target.offsetTop - 130,
-        behavior: 'smooth'
-      });
     }
   };
 
@@ -65,13 +59,13 @@ function Header() {
               </a>
               <ul className="nav" ref={navRef} style={{display: isMenuActive ? 'block' : ''}}>
                 <li>
-                  <Link to="/" className={currentPath === '/' ? 'active' : ''} onClick={handleLinkClick}>Accueil</Link>
+                  <Link to="/" className={currentPath === '/' ? 'active' : ''}>Accueil</Link>
                 </li>
                 <li>
-                  <Link to="/mentions-legales" className={currentPath === '/mentions-legales' ? 'active' : ''} onClick={handleLinkClick}>Mentions légales</Link>
+                  <Link to="/mentions-legales" className={currentPath === '/mentions-legales' ? 'active' : ''}>Mentions légales</Link>
                 </li>
                 <li>
-                  <Link to="/cgu" className={currentPath === '/cgu' ? 'active' : ''} onClick={handleLinkClick}>CGU</Link>
+                  <Link to="/cgu" className={currentPath === '/cgu' ? 'active' : ''}>CGU</Link>
                 </li>
               </ul>
               <a className={`menu-trigger ${isMenuActive ? 'active' : ''}`} onClick={toggleMenu}>
