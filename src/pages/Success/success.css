@@ -1,0 +1,38 @@
+.bodySuccess{
+  text-align: center;
+  background: #EBF0F5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1Success {
+  color: #8aad51;
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.checkmark {
+color: #8aad51;
+font-size: 80px;
+}
+.cardSuccessBody{
+  border-radius:200px;
+  height:200px;
+  width:200px;
+  background: #F8FAF5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardSuccess {
+background: white;
+padding: 60px;
+border-radius: 4px;
+box-shadow: 0 2px 3px #C8D0D8;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
