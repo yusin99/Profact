@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Form from './pages/Form/Form';
-import MentionsLegales from './pages/Mentions-legales/mentions-legales';
+import MentionsLegales from './pages/MentionsLegales/mentions-legales';
 import SuccessPage from './pages/Success/success';
 import CancelPage from './pages/Cancel/cancel';
 

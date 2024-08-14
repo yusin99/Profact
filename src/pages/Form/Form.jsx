@@ -1,38 +1,59 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Loader from './../../components/loader';
 import Header from './../../components/header';
 import Footer from './../../components/footer';
-import { useLocation } from 'react-router-dom';
 import Welcome from './../../components/welcome';
+import MultiPartForm from '../../components/multipartform';
+import staticInfo from "../../static-info.json";
+import Card from './../../components/Card/card';
 
 function Form() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const offerId = params.get('offer');
+  const offerId = parseInt(params.get('offer'));  // Extract the offerId and convert it to an integer
+  const { tarificationWelcomeText, pricingPlans } = staticInfo;
+
+  // Find the matching offer based on the offerId
+  const selectedOffer = pricingPlans.find(plan => plan.id === offerId);
+
+  if (!selectedOffer) {
+    return (
+      <div className="wrapper">
+        <Loader />
+        <Header />
+        <div>Offer not found.</div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="wrapper">
       <Loader />
       <Header />
-      <Welcome />
-      <div className="wrapper">
-      <header>
-        <h1>Form Page</h1>
-      </header>
-      <main>
-        <p>Selected Offer ID: {offerId}</p>
-        {/* Add your form here */}
-      </main>
-      <footer>
-        {/* Add footer content here */}
-      </footer>
-    </div>
-      {/* <Welcome />
-      <SmallFeature />
-      <Counter />
-      <BigFeatureOne />
-      <BigFeatureTwo />
-      <WhyUsSection />
-      <Tarification />
-      <ContactForm /> */}
+      <Welcome 
+        h1={tarificationWelcomeText.h1} 
+        paragraph={tarificationWelcomeText.paragraph} 
+        buttonText={tarificationWelcomeText.buttonText}
+      />
+      <section className="section colored pricing-bg" id="pricing-plans">
+        <div className="container">
+          <div className="row" style={{justifyContent: "center", alignItems: "center"}}>
+            <h5>Selected offer: </h5>
+            <Card  pack={selectedOffer} button={false}/>
+          </div>
+        </div>
+      </section>
+      <MultiPartForm 
+        offerTitle={selectedOffer.title}
+        offerPrice={selectedOffer.price}
+        offerPeriod={selectedOffer.period}
+        offerFeatures={selectedOffer.features}
+      />
       <Footer />
     </div>
   );
