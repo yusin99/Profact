@@ -170,7 +170,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     await db.put('formDataStore', submissionData, 'formData');
   
     try {
-      const response = await fetch(import.meta.env.VITE_API_ENDPOINT, {
+      const response = await fetch(import.meta.env.VITE_API_CHECKOUT_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
