@@ -36,3 +36,10 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 }
+
+.buttonToHome{
+  background: black;
+  padding: 15px 20px;
+  border-radius: 30px;
+  color: white;
+}

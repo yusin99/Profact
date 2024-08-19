@@ -5,6 +5,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import "../ContactForm/contact-form.css"
 import { loadStripe } from '@stripe/stripe-js';
+import { openDB } from "idb";
 
 // Initialize Stripe (put this outside of your component)
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
@@ -135,12 +136,38 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
       }
     }
   
-    const submissionData = {
-      ...formData,
-      files,
+    const convertFileToBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
     };
   
-    sessionStorage.setItem('formData', JSON.stringify(submissionData));
+    const filesBase64 = {};
+  
+    for (let key in files) {
+      if (files[key]) {
+        filesBase64[key] = await convertFileToBase64(files[key]);
+      }
+    }
+  
+    const submissionData = {
+      ...formData,
+      files: filesBase64,
+      checkout: {}
+    };
+  
+    // Open (or create) the IndexedDB
+    const db = await openDB('formDataDB', 1, {
+      upgrade(db) {
+        db.createObjectStore('formDataStore');
+      },
+    });
+  
+    // Store the data in IndexedDB
+    await db.put('formDataStore', submissionData, 'formData');
   
     try {
       const response = await fetch(import.meta.env.VITE_API_ENDPOINT, {
@@ -164,7 +191,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
       sessionStorage.setItem('checkoutInProgress', 'true');
   
       const stripe = await stripePromise;
-      const { error } = await stripe.redirectToCheckout({ sessionId }); // Only pass sessionId
+      const { error } = await stripe.redirectToCheckout({ sessionId });
   
       if (error) {
         console.error('Stripe redirect error:', error);
@@ -182,7 +209,9 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
         icon: "error",
       });
     }
-  };  
+  };
+  
+
 
   return (
     <section className="section colored contact-form-bg" id="contact">
