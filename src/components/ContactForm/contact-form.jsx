@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import "./contact-form.css";
+import { hasEmptyFields } from "../../utils/formUtils";
+import { sendFormData } from "../../services/apiServices";
 
 function ContactForm() {
   const [selectedReason, setSelectedReason] = useState("");
@@ -11,50 +13,49 @@ function ContactForm() {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
-
-    // Check for empty fields
-    let hasEmptyFields = false;
-    for (let [key, value] of formData.entries()) {
-      if (!value.trim()) {
-        hasEmptyFields = true;
-        break;
-      }
-    }
-
-    if (hasEmptyFields) {
+  
+    if (hasEmptyFields(formData)) {
       Swal.fire({
         title: "Erreur",
         text: "Veuillez remplir tous les champs obligatoires",
         icon: "error"
       });
-      return; // Stop form submission
+      return;
     }
+  
     formData.append("access_key", import.meta.env.VITE_CONTACT_FORM_WEB_KEY);
-
+  
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
-
-    const res = await fetch(import.meta.env.VITE_API_WEB_FORM, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: json
-    }).then((res) => res.json());
-
-    if (res.success) {
-      console.log("Success", res);
+  
+    try {
+      const res = await sendFormData(object);
+  
+      if (res.success) {
+        Swal.fire({
+          title: "Succès",
+          text: "Message envoyé avec succès",
+          icon: "success"
+        });
+        form.reset();
+        setSelectedReason("");
+        setCustomReason("");
+      } else {
+        Swal.fire({
+          title: "Erreur",
+          text: "Une erreur est survenue, veuillez réessayer plus tard",
+          icon: "error"
+        });
+      }
+    } catch (error) {
       Swal.fire({
-        title: "Succès",
-        text: "Message envoyé avec succès",
-        icon: "success"
+        title: "Erreur",
+        text: "Une erreur est survenue, veuillez réessayer plus tard",
+        icon: "error"
       });
-      form.reset(); // Clear input fields
-      setSelectedReason(""); // Reset select field
-      setCustomReason(""); // Reset custom reason field
     }
   };
+  
 
   return (
     <section className="section colored contact-form-bg" id="contact">
@@ -75,7 +76,7 @@ function ContactForm() {
         <div className="contact-form-placement row">
           <div className="col-lg-8 col-md-6 col-sm-12">
             <div className="contact-form">
-              <form onSubmit={onSubmit} id="contact" action="" method="get">
+              <form onSubmit={onSubmit} id="contact" action="" method="post">
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-sm-12">
                     <fieldset>
