@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { openDB } from 'idb';
+import { updateFormDataWithCheckoutInfo } from '../../utils/dbUtils';
 import "./success.css";
+import { fetchCheckoutSession, uploadFormData } from "../../services/apiServices";
 
 const SuccessPage = () => {
   const [sessionData, setSessionData] = useState(null);
@@ -12,55 +14,31 @@ const SuccessPage = () => {
     const query = new URLSearchParams(location.search);
     const sessionId = query.get('session_id');
 
-    const updateFormDataWithCheckoutInfo = async (sessionData) => {
-      // Open the IndexedDB and retrieve the formData
-      const db = await openDB('formDataDB', 1);
-      let storedData = await db.get('formDataStore', 'formData');
+    const handleSessionData = async (data) => {
+      try {
+        setSessionData(data);
+        console.log("Stripe session data:", data);
 
-      if (storedData) {
-        // Update the formData with checkout information
-        storedData.checkout = {
-          customer: sessionData.customer,
-        };
+        const updatedData = await updateFormDataWithCheckoutInfo(data);
+        console.log('Updated formData:', updatedData);
 
-        // Save the updated formData back to IndexedDB
-        await db.put('formDataStore', storedData, 'formData');
-        console.log("Updated formData saved to IndexedDB:", storedData);
+        const response = await uploadFormData(updatedData);
+        console.log('Server response:', response);
+      } catch (error) {
+        console.error('Error:', error);
       }
     };
 
     if (sessionId) {
-      fetch(`/api/checkout-session/${sessionId}`, {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(response => {
-        if (!response.ok) {
-          return response.text().then(text => {
-            throw new Error(`HTTP status ${response.status}: ${text}`);
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        setSessionData(data);
-        console.log("Stripe session data:", data);
-
-        // Update formData with customer data from sessionData
-        updateFormDataWithCheckoutInfo(data);
-      })
-      .catch(error => {
-        console.error('Error fetching session data:', error);
-      });
+      fetchCheckoutSession(sessionId)
+        .then(handleSessionData)
+        .catch(error => {
+          console.error('Error fetching session data:', error);
+        });
     } else {
       console.error('No session ID found in the URL');
     }
 
-    // Clear checkoutInProgress flag
     sessionStorage.removeItem('checkoutInProgress');
   }, [location.search]);
 
