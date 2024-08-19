@@ -138,10 +138,6 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     const submissionData = {
       ...formData,
       files,
-      checkout: {
-        offerTitle,
-        offerPrice,
-      }
     };
   
     sessionStorage.setItem('formData', JSON.stringify(submissionData));
@@ -163,8 +159,12 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
       }
   
       const { sessionId } = await response.json();
+  
+      // Set a flag in sessionStorage to allow access to success/cancel pages
+      sessionStorage.setItem('checkoutInProgress', 'true');
+  
       const stripe = await stripePromise;
-      const { error } = await stripe.redirectToCheckout({ sessionId });
+      const { error } = await stripe.redirectToCheckout({ sessionId }); // Only pass sessionId
   
       if (error) {
         console.error('Stripe redirect error:', error);
@@ -182,7 +182,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
         icon: "error",
       });
     }
-  };
+  };  
 
   return (
     <section className="section colored contact-form-bg" id="contact">
