@@ -1,5 +1,9 @@
+import { useEffect } from "react";
 import "./cancel.css"
 const CancelPage = () => {
+  useEffect(() => {
+    sessionStorage.removeItem('checkoutInProgress');
+  }, []);
     return (
       <div className="bodyCancel">
       <div className="cardCancel">
