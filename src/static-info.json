@@ -172,6 +172,27 @@
     "h1" : "Tarification",
     "paragraph" : "« Texte pour tarification »"
   },
-  "cguText": "",
+  "cguText": [
+    {
+      "title": "1. Préambule / Définitions",
+      "text": "This is the introduction text of the CGU. It outlines the purpose and scope of the document."
+    },
+    {
+      "title": "1.2 Pré-requis",
+      "text": "This section explains the responsibilities of the user when using the service, including compliance with laws and regulations."
+    },
+    {
+      "title": "Section 3: Data Protection",
+      "text": "Details about how user data is protected and what measures are in place to ensure privacy."
+    },
+    {
+      "title": "Section 4: Service Limitations",
+      "text": "This section describes the limitations of the service, including disclaimers and limitations of liability."
+    },
+    {
+      "title": "Section 5: Termination",
+      "text": "Information about the conditions under which the service may be terminated and the consequences thereof."
+    }
+  ],
   "mentionsLegalesText": ""
 }
