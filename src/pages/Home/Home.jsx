@@ -10,6 +10,7 @@ import staticInfo from "../../static-info.json";
 import { useEffect } from 'react';
 import BigFeatureLeft from '../../components/FeaturesComponents/big-feature-left';
 import BigFeatureRight from '../../components/FeaturesComponents/big-feature-right';
+import Demonstration from '../../components/Demonstration/demonstration';
 
 function Home() {
   const { features, pricingPlans, otherInfo, homeWelcomeText } = staticInfo;
@@ -30,6 +31,7 @@ function Home() {
       <BigFeatureRight title={features.bigFeatureSix.title} text={features.bigFeatureSix.text} image={features.bigFeatureSix.image} />
       <WhyUsSection />
       <Tarification staticInfo={{ pricingPlans, otherInfo }} />
+      <Demonstration />
       <ContactForm />
       <Footer />
     </div>

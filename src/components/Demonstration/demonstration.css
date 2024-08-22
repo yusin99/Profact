@@ -1,0 +1,28 @@
+.demonstrationWrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -50px;
+    background-image: url(/public/images/banner-car.png);
+}
+
+.demonstrationWrapper h1{
+    color: white;
+    padding-top: 50px;
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: 0.25px;
+}
+
+.demonstrationBody{
+    width: 100%;
+    height: 80vh;
+}
+
+.customPlayer{
+    padding: 100px;
+    height: 100%;
+    margin-bottom: -50px;
+}
+
