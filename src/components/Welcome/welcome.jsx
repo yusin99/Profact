@@ -2,6 +2,9 @@
 import './welcome.css';
 import ScrollButton from './../Button/button';
 
+/* The `Welcome` function is a React functional component that takes in three props: `h1`, `paragraph`,
+and `buttonText`. Inside the function, it returns JSX code that represents a welcome area section of
+a webpage. */
 function Welcome({ h1, paragraph, buttonText }) {
   return (
     <div className="welcome-area" id="welcome">

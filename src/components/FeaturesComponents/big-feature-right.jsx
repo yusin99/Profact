@@ -1,6 +1,12 @@
 /* eslint-disable react/prop-types */
 import "./features.css";
 
+/**
+ * The BigFeatureRight function in JavaScript React renders a section with a title, text, and image
+ * displayed in a specific layout.
+ * @returns The BigFeatureRight component is being returned, which is a section element containing a
+ * title, text, and image displayed in a specific layout using Bootstrap classes.
+ */
 function BigFeatureRight({ title, text, image }) {
   return (
     <section className="section padding-bottom-100">

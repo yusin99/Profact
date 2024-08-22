@@ -3,6 +3,12 @@ import { useEffect, useState } from 'react';
 import './tarification.css';
 import Card from '../Card/card';
 
+/* 
+The `Tarification` function is a React functional component that takes a prop named `staticInfo`.
+Inside the component, the `staticInfo` prop is destructured correctly in the function parameter to
+directly access the `staticInfo` object. 
+*/
+
 function Tarification({ staticInfo }) { // Use destructuring correctly to get staticInfo prop
   const [data, setData] = useState({ pricingPlans: [], otherInfo: {} });
   useEffect(() => {

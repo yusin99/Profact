@@ -5,10 +5,23 @@ import "./contact-form.css";
 import { hasEmptyFields } from "../../utils/formUtils";
 import { sendFormData } from "../../services/apiServices";
 
+/**
+ * The ContactForm function in JavaScript React creates a contact form with validation and submission
+ * functionality.
+ * @returns The `ContactForm` component is being returned. It is a functional component that represents
+ * a contact form section in a website. The form includes fields for name, email, reason for contact,
+ * message, and a submit button. The form also handles form submission, validation, and displays
+ * success or error messages using SweetAlert (Swal) popups.
+ */
 function ContactForm() {
   const [selectedReason, setSelectedReason] = useState("");
   const [customReason, setCustomReason] = useState("");
 
+/**
+ * The function onSubmit handles form submission, validates form data, sends it to a server, and
+ * displays success or error messages using SweetAlert.
+ * @returns The `onSubmit` function returns different things based on certain conditions:
+ */
   const onSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;

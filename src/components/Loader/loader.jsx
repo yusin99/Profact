@@ -1,6 +1,13 @@
 import { useEffect, useRef } from 'react';
 import './loader.css';
 
+/**
+ * The Loader function in JavaScript React creates a preloader element that animates its opacity to 0
+ * before hiding it after a delay.
+ * @returns The Loader component is returning a JSX structure that includes a preloader element with a
+ * ref attached to it. Inside the preloader element, there is a nested div with the class "jumper"
+ * containing three child div elements.
+ */
 function Loader() {
   const preloaderRef = useRef(null);
 

@@ -1,5 +1,8 @@
 import "./small-feature.css"
 
+/* This code defines a React functional component called `SmallFeature`. Inside the component, it
+returns JSX code that represents a section with multiple small feature items. Each feature item
+consists of an icon, a title, and a description. */
 function SmallFeature() {
   return (
     <section className="section home-feature">

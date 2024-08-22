@@ -2,6 +2,10 @@
 // Card.js
 import { Link } from 'react-router-dom';
 
+/**
+ * The `Card` function in JavaScript React renders a pricing card component with dynamic content and an
+ * optional purchase button.
+ */
 const Card = ({ pack, button }) => {
   return (
     <div 

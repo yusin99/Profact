@@ -1,5 +1,9 @@
 import "./counter.css"
 
+/* The `Counter` function is a React component that returns JSX elements representing a section with
+three columns displaying different statistics. Each column contains a `count-item` with a title and
+a value. The values are placeholders for the number of dossiers per month, euros of management per
+month, and the number of garages. */
 function Counter() {
   return (
     <section className="counter">

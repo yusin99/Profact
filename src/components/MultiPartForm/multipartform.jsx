@@ -7,9 +7,12 @@ import "../ContactForm/contact-form.css"
 import { loadStripe } from '@stripe/stripe-js';
 import { openDB } from "idb";
 
-// Initialize Stripe (put this outside of your component)
+// Initialize Stripe
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
+/* The above code is a React component called `MultiPartForm` that implements a multi-part form with
+different steps. The form collects various pieces of information from the user in different steps
+and allows them to navigate between steps using "Next" and "Previous" buttons.*/
 function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -35,11 +38,21 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     cni: null,
   });
 
+/**
+ * The handleChange function updates the form data with the new value based on the input field name.
+ */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+/**
+ * The function `handleFileChange` checks if the selected file is of type JPEG or PNG, displays an
+ * error message if not, and updates the files state accordingly.
+ * @returns The function `handleFileChange` returns either nothing (undefined) if the selected file is
+ * of an allowed type (JPEG or PNG), or it returns early after displaying an error message if the
+ * selected file is not of an allowed type.
+ */
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     const allowedTypes = ['image/jpeg', 'image/png'];
@@ -59,6 +72,13 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     setFiles((prevFiles) => ({ ...prevFiles, [name]: file }));
   };
 
+/**
+ * The function `validateStep` checks the validity of form data based on the current step and displays
+ * error messages if any validation fails.
+ * @returns The `validateStep` function is returning a boolean value. If there are any errors detected
+ * during the validation process based on the current step, it will display an error message using
+ * SweetAlert (Swal) and return `false`. If there are no errors, it will return `true`.
+ */
   const validateStep = () => {
     let errors = [];
 
@@ -110,16 +130,30 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     return true;
   };
 
+/**
+ * The handleNext function increments the step by 1 if the current step is valid.
+ */
   const handleNext = () => {
     if (validateStep()) {
       setStep((prevStep) => prevStep + 1);
     }
   };
 
+/**
+ * The handlePrevious function decreases the step value by 1 in a React component.
+ */
   const handlePrevious = () => {
     setStep((prevStep) => prevStep - 1);
   };
 
+/**
+ * The `onSubmit` function handles form submission by validating form data, converting files to base64,
+ * storing data in IndexedDB, and making a POST request to create a checkout session with error
+ * handling.
+ * @returns The `onSubmit` function is returning either an error message if there is an issue during
+ * form submission or payment processing, or it is redirecting the user to the checkout page if the
+ * submission is successful.
+ */
   const onSubmit = async (event) => {
     event.preventDefault();
   

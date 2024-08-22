@@ -2,6 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './header.css';
 
+/**
+ * The `Header` function in JavaScript React creates a responsive header component with sticky
+ * behavior, menu toggle functionality, and navigation links.
+ * @returns The `Header` component is returning a header section with a logo, navigation menu, and menu
+ * trigger button. The header has a dynamic class `header-sticky` added based on the `isSticky` state.
+ * The navigation menu items are conditionally displayed based on the `isMenuActive` state. The menu
+ * trigger button toggles the visibility of the navigation menu when clicked.
+ */
 function Header() {
   const location = useLocation();
   const currentPath = location.pathname;
@@ -41,6 +49,9 @@ function Header() {
     window.scrollTo(0, 0);
   }, [location]);
 
+/**
+ * The `toggleMenu` function toggles the visibility of a navigation menu based on the current state.
+ */
   const toggleMenu = () => {
     setIsMenuActive(!isMenuActive);
     if (navRef.current) {
