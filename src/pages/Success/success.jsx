@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { updateFormDataWithCheckoutInfo } from '../../utils/dbUtils';
-import "./success.css";
-import { fetchCheckoutSession, uploadFormData } from "../../services/apiServices";
+import { fetchCheckoutSession, uploadFormData } from '../../services/apiServices';
+import { objectToFormData } from '../../utils/formUtils';
+import './success.css';
 
-/* The `SuccessPage` component is a functional React component that represents the success page of a
-purchase process. Here's a breakdown of what the component does: */
+/**
+ * The `SuccessPage` component represents the success page of a purchase process.
+ */
 const SuccessPage = () => {
   const [sessionData, setSessionData] = useState(null);
   const location = useLocation();
@@ -16,28 +18,28 @@ const SuccessPage = () => {
     const query = new URLSearchParams(location.search);
     const sessionId = query.get('session_id');
 
-   /**
-    * The function `handleSessionData` sets session data, updates form data with checkout info, and
-    * uploads the updated form data, handling any errors that occur.
-    */
+    /**
+     * Handles the session data, updates form data, and uploads it.
+     * @param {Object} data - The session data.
+     */
+    
     const handleSessionData = async (data) => {
       try {
         setSessionData(data);
-        console.log("Stripe session data:", data);
 
+        // Update form data with checkout info
         const updatedData = await updateFormDataWithCheckoutInfo(data);
-        console.log('Updated formData:', updatedData);
+        const formData = objectToFormData(updatedData);
 
-        const response = await uploadFormData(updatedData);
-        console.log('Server response:', response);
+        // Upload the form data
+        const response = await uploadFormData(formData);
+        console.log('Upload response:', response);
+
       } catch (error) {
         console.error('Error:', error);
       }
     };
 
-    /* This block of code is checking if a `sessionId` exists in the URL query parameters. If a `sessionId`
-    is found, it calls the `fetchCheckoutSession` function with the `sessionId` as a parameter. The
-    `fetchCheckoutSession` function is expected to return some data related to the checkout session. */
     if (sessionId) {
       fetchCheckoutSession(sessionId)
         .then(handleSessionData)

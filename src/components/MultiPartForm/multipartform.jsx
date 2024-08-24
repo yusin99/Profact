@@ -9,6 +9,18 @@ import { openDB } from "idb";
 
 // Initialize Stripe
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+const priceIds = {
+  '30 dossiers': import.meta.env.VITE_PRICE_30_DOSSIERS,
+  '50 dossiers': import.meta.env.VITE_PRICE_50_DOSSIERS,
+  '70 dossiers': import.meta.env.VITE_PRICE_70_DOSSIERS,
+  '90 dossiers': import.meta.env.VITE_PRICE_90_DOSSIERS,
+  '110 dossiers': import.meta.env.VITE_PRICE_110_DOSSIERS,
+  '130 dossiers': import.meta.env.VITE_PRICE_130_DOSSIERS,
+  '170 dossiers': import.meta.env.VITE_PRICE_170_DOSSIERS,
+  '190 dossiers': import.meta.env.VITE_PRICE_190_DOSSIERS,
+  '200 dossiers': import.meta.env.VITE_PRICE_200_DOSSIERS,
+};import { createCheckoutSession } from './../../services/apiServices';
+
 
 /* The above code is a React component called `MultiPartForm` that implements a multi-part form with
 different steps. The form collects various pieces of information from the user in different steps
@@ -43,7 +55,11 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
  */
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    if (name === 'creditAbonnement') {
+      setFormData((prevData) => ({ ...prevData, [name]: parseInt(value, 10) || '' }));
+    } else {
+      setFormData((prevData) => ({ ...prevData, [name]: value }));
+    }
   };
 
 /**
@@ -154,96 +170,87 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
  * form submission or payment processing, or it is redirecting the user to the checkout page if the
  * submission is successful.
  */
-  const onSubmit = async (event) => {
-    event.preventDefault();
-  
-    if (!validateStep()) return;
-  
-    for (let key in formData) {
-      if (!formData[key]) {
-        Swal.fire({
-          title: "Erreur",
-          text: "Veuillez remplir tous les champs obligatoires",
-          icon: "error",
-        });
-        return;
-      }
-    }
-  
-    const convertFileToBase64 = (file) => {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = (error) => reject(error);
-      });
-    };
-  
-    const filesBase64 = {};
-  
-    for (let key in files) {
-      if (files[key]) {
-        filesBase64[key] = await convertFileToBase64(files[key]);
-      }
-    }
-  
-    const submissionData = {
-      ...formData,
-      files: filesBase64,
-      checkout: {}
-    };
-  
-    // Open (or create) the IndexedDB
-    const db = await openDB('formDataDB', 1, {
-      upgrade(db) {
-        db.createObjectStore('formDataStore');
-      },
-    });
-  
-    // Store the data in IndexedDB
-    await db.put('formDataStore', submissionData, 'formData');
-  
-    try {
-      const response = await fetch(import.meta.env.VITE_API_CHECKOUT_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          offerTitle,
-          offerPrice,
-        }),
-      });
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to create checkout session');
-      }
-  
-      const { sessionId } = await response.json();
-  
-      // Set a flag in sessionStorage to allow access to success/cancel pages
-      sessionStorage.setItem('checkoutInProgress', 'true');
-  
-      const stripe = await stripePromise;
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-  
-      if (error) {
-        console.error('Stripe redirect error:', error);
-        Swal.fire({
-          title: "Erreur",
-          text: error.message,
-          icon: "error",
-        });
-      }
-    } catch (error) {
-      console.error('Error:', error);
+const onSubmit = async (event) => {
+  event.preventDefault();
+
+  if (!validateStep()) return;
+
+  for (let key in formData) {
+    if (!formData[key]) {
       Swal.fire({
         title: "Erreur",
-        text: error.message || "Une erreur est survenue lors de la création de la session de paiement",
+        text: "Veuillez remplir tous les champs obligatoires",
+        icon: "error",
+      });
+      return;
+    }
+  }
+
+  const convertFileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
+  const filesBase64 = {};
+
+  for (let key in files) {
+    if (files[key]) {
+      filesBase64[key] = await convertFileToBase64(files[key]);
+    }
+  }
+
+  const submissionData = {
+    data: { ...formData, creditAbonnement: parseInt(formData.creditAbonnement, 10) },
+    ...filesBase64
+  };
+
+  // Open (or create) the IndexedDB
+  const db = await openDB('formDataDB', 1, {
+    upgrade(db) {
+      db.createObjectStore('formDataStore');
+    },
+  });
+
+  // Store the data in IndexedDB
+  await db.put('formDataStore', submissionData, 'formData');
+
+  try {
+    // Get the correct priceId based on the offerTitle
+    const priceId = priceIds[offerTitle];
+
+    if (!priceId) {
+      throw new Error('Invalid offer title or missing price ID');
+    }
+
+    const { sessionId } = await createCheckoutSession(priceId);
+
+    // Set a flag in sessionStorage to allow access to success/cancel pages
+    sessionStorage.setItem('checkoutInProgress', 'true');
+
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({ sessionId });
+
+    if (error) {
+      console.error('Stripe redirect error:', error);
+      Swal.fire({
+        title: "Erreur",
+        text: error.message,
         icon: "error",
       });
     }
-  };
+  } catch (error) {
+    console.error('Error:', error);
+    Swal.fire({
+      title: "Erreur",
+      text: error.message || "Une erreur est survenue lors de la création de la session de paiement",
+      icon: "error",
+    });
+  }
+};
   
 
 
@@ -261,7 +268,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
         <div className="contact-form-placement row">
           <div className="col-lg-8 col-md-6 col-sm-12">
             <div className="contact-form">
-              <form onSubmit={onSubmit} id="multi-part-form" action="" method="get">
+              <form onSubmit={onSubmit} id="multi-part-form" action="" method="post">
                 {step === 1 && (
                   <div className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12">
@@ -495,7 +502,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
                         <label>Crédit d'Abonnement</label>
                         <input
                           name="creditAbonnement"
-                          type="text"
+                          type="number"
                           className="form-control"
                           placeholder="Crédit d'Abonnement"
                           value={formData.creditAbonnement}

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Form from './pages/Form/Form';
@@ -7,8 +7,13 @@ import SuccessPage from './pages/Success/success';
 import CancelPage from './pages/Cancel/cancel';
 import CGU from './pages/CGU/cgu';
 import ProtectedRoute from './context/protected';
+import { authenticate } from './services/apiServices';
+
 
 function App() {
+  useEffect(() => {
+    authenticate();
+  }, []); 
   return (
     <Router>
       <Routes>

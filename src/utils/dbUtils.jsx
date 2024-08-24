@@ -11,10 +11,12 @@ export const updateFormDataWithCheckoutInfo = async (sessionData) => {
   const db = await openDB('formDataDB', 1);
   let storedData = await db.get('formDataStore', 'formData');
 
+
   if (storedData) {
-    storedData.checkout = {
-      customer: sessionData.customer,
+    storedData.data.checkout = {
+      "sessionId": sessionData.id,
     };
+    console.log("storeData", storedData)
 
     await db.put('formDataStore', storedData, 'formData');
     console.log("Updated formData saved to IndexedDB:", storedData);
