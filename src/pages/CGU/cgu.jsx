@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Footer from "../../components/Footer/footer";
 import Header from "../../components/Header/header";
 import Loader from "../../components/Loader/loader";
