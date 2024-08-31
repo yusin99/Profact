@@ -13,7 +13,6 @@ function CGU() {
 
   return (
     <div className="wrapper">
-      <Loader />
       <Header />
       <Welcome />
       <h2>Conditions Générales d'Utilisation</h2>

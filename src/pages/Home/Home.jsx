@@ -19,7 +19,6 @@ function Home() {
   }, []);
   return (
     <div className="wrapper">
-      <Loader />
       <Header />
       <Welcome h1={homeWelcomeText.h1} paragraph={homeWelcomeText.paragraph} buttonText={homeWelcomeText.buttonText}/>
       <SmallFeature />

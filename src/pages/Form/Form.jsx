@@ -23,7 +23,6 @@ function Form() {
   if (!selectedOffer) {
     return (
       <div className="wrapper">
-        <Loader />
         <Header />
         <div>Offer not found.</div>
         <Footer />
@@ -33,7 +32,6 @@ function Form() {
 
   return (
     <div className="wrapper">
-      <Loader />
       <Header />
       <Welcome 
         h1={tarificationWelcomeText.h1} 

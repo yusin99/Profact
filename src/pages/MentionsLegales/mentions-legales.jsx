@@ -7,7 +7,6 @@ import Welcome from "../../components/Welcome/welcome"
 function MentionsLegales() {
   return (
     <div className="wrapper">
-    <Loader />
     <Header />
     <Welcome />
     <div>Mentions legales</div>
