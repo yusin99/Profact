@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import "../ContactForm/contact-form.css"
+import "./multipartform.css"
 import { loadStripe } from '@stripe/stripe-js';
 import { openDB } from "idb";
+import DOMPurify from 'dompurify';
 
 // Initialize Stripe
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
@@ -19,17 +21,14 @@ const priceIds = {
   '170 dossiers': import.meta.env.VITE_PRICE_170_DOSSIERS,
   '190 dossiers': import.meta.env.VITE_PRICE_190_DOSSIERS,
   '200 dossiers': import.meta.env.VITE_PRICE_200_DOSSIERS,
-};import { createCheckoutSession } from './../../services/apiServices';
+};
 
-
-/* The above code is a React component called `MultiPartForm` that implements a multi-part form with
-different steps. The form collects various pieces of information from the user in different steps
-and allows them to navigate between steps using "Next" and "Previous" buttons.*/
 function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
     nomSociete: "",
     siret: "",
     numTva: "",
@@ -50,51 +49,51 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     cni: null,
   });
 
-/**
- * The handleChange function updates the form data with the new value based on the input field name.
- */
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'creditAbonnement') {
-      setFormData((prevData) => ({ ...prevData, [name]: parseInt(value, 10) || '' }));
-    } else {
-      setFormData((prevData) => ({ ...prevData, [name]: value }));
-    }
+    const sanitizedValue = DOMPurify.sanitize(value);
+    setFormData((prevData) => ({ ...prevData, [name]: sanitizedValue }));
   };
 
-/**
- * The function `handleFileChange` checks if the selected file is of type JPEG or PNG, displays an
- * error message if not, and updates the files state accordingly.
- * @returns The function `handleFileChange` returns either nothing (undefined) if the selected file is
- * of an allowed type (JPEG or PNG), or it returns early after displaying an error message if the
- * selected file is not of an allowed type.
- */
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     const allowedTypes = ['image/jpeg', 'image/png'];
     const file = files[0];
+    const maxSize = 67000000; // 67MB in bytes
 
     if (file && !allowedTypes.includes(file.type)) {
-        Swal.fire({
-            title: "Erreur",
-            text: "Veuillez sélectionner un fichier JPG ou PNG uniquement.",
-            icon: "error"
-        });
-        // Clear the file input
-        e.target.value = ""; 
-        return;
+      Swal.fire({
+        title: "Erreur",
+        text: "Veuillez sélectionner un fichier JPG ou PNG uniquement.",
+        icon: "error"
+      });
+      e.target.value = "";
+      return;
+    }
+
+    if (file && file.size > maxSize) {
+      Swal.fire({
+        title: "Erreur",
+        text: "La taille du fichier ne doit pas dépasser 67 Mo.",
+        icon: "error"
+      });
+      e.target.value = "";
+      return;
+    }
+
+    if (file && !/^[^./\\]+\.(jpg|jpeg|png)$/i.test(file.name)) {
+      Swal.fire({
+        title: "Erreur",
+        text: "Le nom du fichier ne doit pas contenir de '.', '/' ou '\\' sauf pour l'extension.",
+        icon: "error"
+      });
+      e.target.value = "";
+      return;
     }
 
     setFiles((prevFiles) => ({ ...prevFiles, [name]: file }));
   };
 
-/**
- * The function `validateStep` checks the validity of form data based on the current step and displays
- * error messages if any validation fails.
- * @returns The `validateStep` function is returning a boolean value. If there are any errors detected
- * during the validation process based on the current step, it will display an error message using
- * SweetAlert (Swal) and return `false`. If there are no errors, it will return `true`.
- */
   const validateStep = () => {
     let errors = [];
 
@@ -103,41 +102,76 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
       if (!emailPattern.test(formData.email)) {
         errors.push("Veuillez entrer une adresse email valide.");
       }
+
+      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{10,}$/;
+      if (!passwordPattern.test(formData.password)) {
+        errors.push("Le mot de passe doit contenir au moins 10 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial.");
+      }
+
+      if (formData.password !== formData.confirmPassword) {
+        errors.push("Les mots de passe ne correspondent pas.");
+      }
     }
 
     if (step === 2) {
-      const numberPattern = /^\d+$/;
-      if (!numberPattern.test(formData.siret)) {
-        errors.push("Le SIRET doit contenir uniquement des chiffres.");
+      if (!/^[^./\\]{1,40}$/.test(formData.nomSociete)) {
+        errors.push("Le nom de la société ne doit pas contenir '/', '.', '\\' et ne pas dépasser 40 caractères.");
       }
 
-      if (!numberPattern.test(formData.capital)) {
-        errors.push("Le capital doit contenir uniquement des chiffres.");
+      if (!/^\d{1,255}$/.test(formData.siret)) {
+        errors.push("Le SIRET doit contenir uniquement des chiffres (max 255 caractères).");
       }
-      
-      if (formData.nomSociete.length > 40) {
-        errors.push("Le nom de la société ne doit pas dépasser 40 caractères.");
+
+      if (formData.numTva.length > 255) {
+        errors.push("Le numéro TVA ne doit pas dépasser 255 caractères.");
+      }
+
+      if (!/^\d+$/.test(formData.capital) || formData.capital.length > 255) {
+        errors.push("Le capital doit contenir uniquement des chiffres (max 255 caractères) sans espaces ni symbole €.");
       }
     }
 
     if (step === 3) {
-      const phonePattern = /^\d{10}$/;
-      if (!phonePattern.test(formData.telephone)) {
-        errors.push("Le téléphone doit contenir 10 chiffres.");
+      if (!/^\d{10}$/.test(formData.telephone)) {
+        errors.push("Le téléphone doit contenir exactement 10 chiffres sans espaces ni indicatif.");
+      }
+
+      if (!/^[a-zA-Z]{1,255}$/.test(formData.nomDirigeant)) {
+        errors.push("Le nom du dirigeant ne doit pas contenir de caractères spéciaux (max 255 caractères).");
+      }
+
+      if (!/^[a-zA-Z]{1,255}$/.test(formData.prenomDirigeant)) {
+        errors.push("Le prénom du dirigeant ne doit pas contenir de caractères spéciaux (max 255 caractères).");
+      }
+
+      const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+      if (!urlPattern.test(formData.urlVosFactures) || formData.urlVosFactures.length > 255) {
+        errors.push("L'URL VosFactures n'est pas valide ou dépasse 255 caractères.");
+      }
+
+      if (formData.apiKeyVosFactures.length > 255) {
+        errors.push("L'API Key VosFactures ne doit pas dépasser 255 caractères.");
       }
     }
 
     if (step === 4) {
-      const numberPattern = /^\d+$/;
-      if (!numberPattern.test(formData.creditAbonnement)) {
-        errors.push("Le crédit d'abonnement doit contenir uniquement des chiffres.");
+      if (!/^\d+(\.\d{1,2})?$/.test(formData.tauxHoraireHt)) {
+        errors.push("Le taux horaire HT doit être un nombre décimal avec maximum 2 décimales (ex: 45.50).");
+      }
+
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(formData.dateEditionKbis)) {
+        errors.push("La date d'édition du Kbis doit être au format YYYY-MM-DD.");
+      }
+
+      if (!/^\d+$/.test(formData.creditAbonnement)) {
+        errors.push("Le crédit d'abonnement doit être un nombre entier sans décimales.");
       }
     }
 
     if (errors.length > 0) {
       Swal.fire({
         title: "Erreur",
-        text: errors.join("\n"),
+        html: errors.map(error => `- ${error}`).join('<br> <br>'),
         icon: "error"
       });
       return false;
@@ -146,18 +180,12 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     return true;
   };
 
-/**
- * The handleNext function increments the step by 1 if the current step is valid.
- */
   const handleNext = () => {
     if (validateStep()) {
       setStep((prevStep) => prevStep + 1);
     }
   };
 
-/**
- * The handlePrevious function decreases the step value by 1 in a React component.
- */
   const handlePrevious = () => {
     setStep((prevStep) => prevStep - 1);
   };
@@ -256,58 +284,72 @@ const onSubmit = async (event) => {
 
   return (
     <section className="section colored contact-form-bg" id="contact">
-      <div className="container">
-        <div className="contact-form-placement row">
-          <div className="col-lg-12">
-            <div className="center-heading">
-              <h2 className="section-title">Multi Part Form</h2>
-            </div>
+    <div className="container">
+      <div className="contact-form-placement row">
+        <div className="col-lg-12">
+          <div className="center-heading">
+            <h2 className="section-title">Multi Part Form</h2>
           </div>
         </div>
+      </div>
 
-        <div className="contact-form-placement row">
-          <div className="col-lg-8 col-md-6 col-sm-12">
-            <div className="contact-form">
-              <form onSubmit={onSubmit} id="multi-part-form" action="" method="post">
-                {step === 1 && (
-                  <div className="row">
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                      <fieldset>
-                        <label>Email</label>
-                        <input
-                          name="email"
-                          type="email"
-                          className="form-control"
-                          placeholder="E-Mail Address"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                        />
-                      </fieldset>
-                    </div>
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                      <fieldset>
-                        <label>Password</label>
-                        <input
-                          name="password"
-                          type="password"
-                          className="form-control"
-                          placeholder="Password"
-                          value={formData.password}
-                          onChange={handleChange}
-                          required
-                        />
-                      </fieldset>
-                    </div>
-                    <div className="col-lg-12">
-                      <fieldset>
-                        <button type="button" onClick={handleNext} className="main-button">
-                          Next
-                        </button>
-                      </fieldset>
-                    </div>
+      <div className="contact-form-placement row">
+        <div className="col-lg-8 col-md-6 col-sm-12">
+          <div className="contact-form">
+            <form onSubmit={onSubmit} id="multi-part-form" action="" method="post">
+              {step === 1 && (
+                <div className="row">
+                  <div className="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <label>Email</label>
+                      <input
+                        name="email"
+                        type="email"
+                        className="form-control"
+                        placeholder="E-Mail Address"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                      />
+                    </fieldset>
                   </div>
-                )}
+                  <div className="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <label>Password</label>
+                      <input
+                        name="password"
+                        type="password"
+                        className="form-control"
+                        placeholder="Password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        required
+                      />
+                    </fieldset>
+                  </div>
+                  <div className="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <label>Confirm Password</label>
+                      <input
+                        name="confirmPassword"
+                        type="password"
+                        className="form-control"
+                        placeholder="Confirm Password"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        required
+                      />
+                    </fieldset>
+                  </div>
+                  <div className="col-lg-12">
+                    <fieldset>
+                      <button type="button" onClick={handleNext} className="main-button">
+                        Next
+                      </button>
+                    </fieldset>
+                  </div>
+                </div>
+              )}
 
                 {step === 2 && (
                   <div className="row">
@@ -369,7 +411,7 @@ const onSubmit = async (event) => {
                         />
                       </fieldset>
                     </div>
-                    <div className="col-lg-12">
+                    <div className="buttons-container col-lg-12">
                       <fieldset>
                         <button type="button" onClick={handlePrevious} className="main-button">
                           Previous
@@ -455,7 +497,7 @@ const onSubmit = async (event) => {
                         />
                       </fieldset>
                     </div>
-                    <div className="col-lg-12">
+                    <div className="buttons-container col-lg-12">
                       <fieldset>
                         <button type="button" onClick={handlePrevious} className="main-button">
                           Previous
@@ -563,7 +605,7 @@ const onSubmit = async (event) => {
                         />
                       </fieldset>
                     </div>
-                    <div className="col-lg-12">
+                    <div className="buttons-container col-lg-12">
                       <fieldset>
                         <button type="button" onClick={handlePrevious} className="main-button">
                           Previous

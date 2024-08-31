@@ -1,0 +1,17 @@
+.contact-form .note{
+    font-size: 11px;
+    color: rgb(154, 154, 154);
+}
+
+.buttons-container fieldset{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div:where(.swal2-container) .swal2-html-container {
+    text-align: start !important;
+    font-size: 13px !important;
+    color: red !important;
+    font-weight: 600 !important;
+}
