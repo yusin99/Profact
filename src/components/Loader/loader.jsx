@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import './loader.css';
+import { Hourglass } from 'react-loader-spinner';
 
 /**
  * The Loader function in JavaScript React creates a preloader element that animates its opacity to 0
@@ -29,11 +30,15 @@ function Loader() {
 
   return (
     <div id="preloader" ref={preloaderRef}>
-      <div className="jumper">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <Hourglass
+        visible={true}
+        height="80"
+        width="80"
+        ariaLabel="hourglass-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        colors={['#306cce', '#72a1ed']}
+      />
     </div>  
   );
 }

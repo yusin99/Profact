@@ -6,23 +6,21 @@ import { updateFormDataWithCheckoutInfo } from '../../utils/dbUtils';
 import { fetchCheckoutSession, uploadFormData } from '../../services/apiServices';
 import { objectToFormData } from '../../utils/formUtils';
 import './success.css';
+import { Hourglass } from 'react-loader-spinner';
+
 
 /**
  * The `SuccessPage` component represents the success page of a purchase process.
  */
 const SuccessPage = () => {
   const [sessionData, setSessionData] = useState(null);
+  const [loading, setLoading] = useState(true); // State to manage loader visibility
   const location = useLocation();
 
   useEffect(() => {
     const query = new URLSearchParams(location.search);
     const sessionId = query.get('session_id');
 
-    /**
-     * Handles the session data, updates form data, and uploads it.
-     * @param {Object} data - The session data.
-     */
-    
     const handleSessionData = async (data) => {
       try {
         setSessionData(data);
@@ -34,9 +32,10 @@ const SuccessPage = () => {
         // Upload the form data
         const response = await uploadFormData(formData);
         console.log('Upload response:', response);
-
       } catch (error) {
         console.error('Error:', error);
+      } finally {
+        setLoading(false); // Hide loader after handling the session data
       }
     };
 
@@ -45,9 +44,11 @@ const SuccessPage = () => {
         .then(handleSessionData)
         .catch(error => {
           console.error('Error fetching session data:', error);
+          setLoading(false); // Hide loader if there's an error
         });
     } else {
       console.error('No session ID found in the URL');
+      setLoading(false); // Hide loader if session ID is not found
     }
 
     sessionStorage.removeItem('checkoutInProgress');
@@ -55,14 +56,25 @@ const SuccessPage = () => {
 
   return (
     <div className="bodySuccess">
-      <div className="cardSuccess">
-        <div className="cardSuccessBody">
-          <i className="checkmark">✓</i>
+      {loading && <Hourglass
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    colors={['#306cce', '#72a1ed']}
+                  />} 
+      {!loading && (
+        <div className="cardSuccess">
+          <div className="cardSuccessBody">
+            <i className="checkmark">✓</i>
+          </div>
+          <h1 className="h1Success">Success</h1>
+          <p>We received your purchase request;<br /> We'll be in touch shortly!</p>
+          <Link to="/" className="buttonToHome">Accueil</Link>
         </div>
-        <h1 className="h1Success">Success</h1>
-        <p>We received your purchase request;<br /> We'll be in touch shortly!</p>
-        <Link to="/" className="buttonToHome">Accueil</Link>
-      </div>
+      )}
     </div>
   );
 };

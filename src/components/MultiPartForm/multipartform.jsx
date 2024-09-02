@@ -8,6 +8,7 @@ import "./multipartform.css"
 import { loadStripe } from '@stripe/stripe-js';
 import { openDB } from "idb";
 import DOMPurify from 'dompurify';
+import { createCheckoutSession } from "../../services/apiServices";
 
 // Initialize Stripe
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
