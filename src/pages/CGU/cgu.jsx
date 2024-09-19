@@ -9,12 +9,12 @@ import "./cgu.css"
 import staticInfo from "../../static-info.json"; // Adjust the path as needed
 
 function CGU() {
-  const { cguText } = staticInfo; // Destructure cguText from the static info
+  const { cguText, cguWelcomeText } = staticInfo; // Destructure cguText from the static info
 
   return (
     <div className="wrapper">
       <Header />
-      <Welcome />
+      <Welcome h1={cguWelcomeText.h1} paragraph={cguWelcomeText.paragraph}/>
       <h2>Conditions Générales d'Utilisation</h2>
       <div className="cgu-content">
         {cguText.map((section, index) => (
