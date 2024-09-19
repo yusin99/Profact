@@ -115,7 +115,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
         errors.push("Veuillez entrer une adresse email valide.");
       }
 
-      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{10,}$/;
+      const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*-])[A-Za-z\d!@#$%^&*-]{10,}$/;
       if (!passwordPattern.test(formData.password)) {
         errors.push("Le mot de passe doit contenir au moins 10 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial.");
       }
