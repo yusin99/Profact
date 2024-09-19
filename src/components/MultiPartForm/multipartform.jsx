@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import "../ContactForm/contact-form.css"
 import "./multipartform.css"
@@ -49,6 +49,17 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
     rib: null,
     cni: null,
   });
+
+  useEffect(() => {
+    // Extract the number of dossiers from the offer title
+    const dossiers = offerTitle.match(/^\d+/);
+    if (dossiers) {
+      setFormData(prevData => ({
+        ...prevData,
+        creditAbonnement: dossiers[0]
+      }));
+    }
+  }, [offerTitle]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -549,8 +560,8 @@ const onSubmit = async (event) => {
                           className="form-control"
                           placeholder="Crédit d'Abonnement"
                           value={formData.creditAbonnement}
-                          onChange={handleChange}
-                          required
+                          // onChange={handleChange}
+                          readOnly
                         />
                       </fieldset>
                     </div>
