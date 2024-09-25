@@ -134,16 +134,16 @@
   "features": {
     "bigFeatureOne": {
       "title": "Préremplissage automatique des cessions de créance",
-      "image": "/images/left-image-car.png",
+      "image": "/images/preremplissage.jpg",
       "text": "Plus de saisie manuelle répétitive—nos outils intelligents préremplissent les documents nécessaires pour accélérer vos transactions"
     },
     "bigFeatureTwo": {
       "title": "Sélection des éléments des véhicules",
       "image": "/images/right-image-car.png",
-      "text": "Identifiez et sélectionnez facilement les parties du véhicule impliquées dans le sinistre pour une documentation précise et rapide"
+      "text": "Identifiez et sélectionnez facilement les parties du véhicule impliqué dans le sinistre pour une documentation précise et rapide"
     },
     "bigFeatureThree": {
-      "title": "Chiffrage automatique",
+      "title": "Chiffrage automatisé",
       "image": "/images/left-image-car.png",
       "text": "Notre système calcule instantanément le coût des réparations nécessaires, garantissant ainsi une estimation rapide et fiable pour vous et les assurances"
     },
@@ -154,27 +154,27 @@
     },
     "bigFeatureFive": {
       "title": "Envoi en lettre recommandée électronique aux assurances",
-      "image": "/images/right-image-car.png",
+      "image": "/images/envoi.jpg",
       "text": "Optez pour la sécurité et la rapidité avec l'envoi électronique de documents importants, directement depuis notre plateforme"
     },
     "bigFeatureSix": {
       "title": "Relances à J+20",
       "text": "Automatisez les relances pour les paiements en retard, réduisant le temps de suivi et améliorant le flux de trésorerie.",
-      "image": "/images/right-image-car.png"
+      "image": "/images/relance.jpg"
     }
   },
   "cguWelcomeText": {
-    "h1" : "Assez de passer des heures sur vos dossiers bris de glaces et carrosseries ??? ",
+    "h1" : "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
     "paragraph" : "« Enfin une solution efficace qui vous fais gagner du temps »",
     "buttonText": "Découvrez plus"
   },
   "mentionsLegalesWelcomeText": {
-    "h1" : "Assez de passer des heures sur vos dossiers bris de glaces et carrosseries ??? ",
+    "h1" : "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
     "paragraph" : "« Enfin une solution efficace qui vous fais gagner du temps »",
     "buttonText": "Découvrez plus"
   },
   "homeWelcomeText": {
-    "h1" : "Assez de passer des heures sur vos dossiers bris de glaces et carrosseries ??? ",
+    "h1" : "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
     "paragraph" : "« Enfin une solution efficace qui vous fais gagner du temps »",
     "buttonText": "Découvrez plus"
   },

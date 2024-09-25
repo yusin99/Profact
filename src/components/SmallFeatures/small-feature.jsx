@@ -15,7 +15,7 @@ function SmallFeature() {
                             <div className="icon">
                                 <i><img src="/images/featured-item-01.png" alt=""/></i>
                             </div>
-                            <h5 className="features-title">Edition Automatique</h5>
+                            <h5 className="features-title">Édition simplifiée</h5>
                             <p> des factures, déclarations de sinistres et des cessions de créance. 
                             </p>
                         </div>
@@ -26,7 +26,7 @@ function SmallFeature() {
                             <div className="icon">
                                 <i><img src="/images/featured-item-01.png" alt=""/></i>
                             </div>
-                            <h5 className="features-title">Envoie Automatique</h5>
+                            <h5 className="features-title">Envoi automatique</h5>
                             <p> par recommandé </p>
                         </div>
                     </div>
@@ -37,7 +37,7 @@ function SmallFeature() {
                                 <i><img src="/images/featured-item-01.png" alt=""/></i>
                             </div>
                             <h5 className="features-title">Relance mail automatique</h5>
-                            <p>de tous vos dossier impayé ( biensure avec le renvoie complet de tous les documents )</p>
+                            <p>de tous vos dossiers impayés ( biensur avec le renvoi complet de tous les documents avec l’accusé de réception )</p>
                         </div>
                     </div>
 
@@ -46,8 +46,8 @@ function SmallFeature() {
                             <div className="icon">
                                 <i><img src="/images/featured-item-01.png" alt=""/></i>
                             </div>
-                            <h5 className="features-title">Disponible sur </h5>
-                            <p>Tablette / PC / Portable</p>
+                            <h5 className="features-title">Une solution adaptée aux différents outils </h5>
+                            <p>( tablette / pc / portable ) </p>
                         </div>
                     </div>
                 </div>

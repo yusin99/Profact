@@ -101,6 +101,10 @@ body {
   border-bottom: 1px solid #eee;
 }
 
+.rounded {
+  border-radius: 1.25rem!important;
+}
+
 .left-heading.light .section-title {
   color: #ffffff;
 }

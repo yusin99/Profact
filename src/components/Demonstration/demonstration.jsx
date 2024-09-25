@@ -11,7 +11,7 @@ function Demonstration() {
         <div className="videoWrapper customPlayer">
           <ReactPlayer 
             className="reactPlayer" 
-            url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' 
+            url='/videos/demo.mp4' 
             width='100%' 
             height='100%' 
             controls
