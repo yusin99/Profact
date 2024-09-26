@@ -8,6 +8,7 @@ import CancelPage from './pages/Cancel/cancel';
 import CGU from './pages/CGU/cgu';
 import ProtectedRoute from './context/protected';
 import { authenticate } from './services/apiServices';
+import { PopupWidget } from 'react-calendly';
 
 
 function App() {
@@ -16,6 +17,13 @@ function App() {
   }, []); 
   return (
     <Router>
+      <PopupWidget
+          url="https://calendly.com/sunkatabeckama"
+          rootElement={document.getElementById("root")}
+          text="Prenez un rendez-vous!"
+          textColor="#ffffff"
+          color="#23a764"
+        />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />
@@ -23,6 +31,7 @@ function App() {
         <Route path="/cancel" element={<ProtectedRoute element={<CancelPage />} />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/cgu" element={<CGU />} />
+        
       </Routes>
     </Router>
   );

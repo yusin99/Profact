@@ -16,9 +16,9 @@
     margin-bottom: 30px;
   }
   
-  .features-small-item:hover .icon {
+  /* .features-small-item:hover .icon {
     background-color: #00603b;
-  }
+  } */
   
   .features-small-item .icon {
     -webkit-transition: all 0.3s ease 0s;
@@ -31,10 +31,13 @@
     margin: auto;
     position: relative;
     margin-bottom: 30px;
-    background: #00ad6a;
+    /* background: #00ad6a; */
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
+  }
+  .features-small-item .icon i img {
+    width: 100%;
   }
   
   .features-small-item .icon i {

@@ -139,17 +139,17 @@
     },
     "bigFeatureTwo": {
       "title": "Sélection des éléments des véhicules",
-      "image": "/images/right-image-car.png",
+      "image": "/images/auto.jpg",
       "text": "Identifiez et sélectionnez facilement les parties du véhicule impliqué dans le sinistre pour une documentation précise et rapide"
     },
     "bigFeatureThree": {
       "title": "Chiffrage automatisé",
-      "image": "/images/left-image-car.png",
+      "image": "/images/chiffrage.jpg",
       "text": "Notre système calcule instantanément le coût des réparations nécessaires, garantissant ainsi une estimation rapide et fiable pour vous et les assurances"
     },
     "bigFeatureFour": {
       "title": "Prévisualisation de la facture",
-      "image": "/images/right-image-car.png",
+      "image": "/images/previsualisation.jpg",
       "text": "Vérifiez et ajustez les détails de vos factures avant envoi, assurant une transparence totale et une satisfaction client accrue"
     },
     "bigFeatureFive": {
