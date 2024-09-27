@@ -2,6 +2,34 @@
   "pricingPlans": [
     {
       "id": 1,
+      "title": "10 dossiers",
+      "price": "xxx.xx",
+      "period": "Tarif mensuel (€ HT)",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "20 dossiers",
+      "price": "xxx.xx",
+      "period": "Tarif mensuel (€ HT)",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 3,
       "title": "30 dossiers",
       "price": "343.50",
       "period": "Tarif mensuel (€ HT)",
@@ -15,7 +43,21 @@
       ]
     },
     {
-      "id": 2,
+      "id": 4,
+      "title": "40 dossiers",
+      "price": "xxx.xx",
+      "period": "Tarif mensuel (€ HT)",
+      "features": [
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor.",
+        "Lorem, ipsum dolor."
+      ]
+    },
+    {
+      "id": 5,
       "title": "50 dossiers",
       "price": "565",
       "period": "monthly",
@@ -29,7 +71,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 6,
       "title": "70 dossiers",
       "price": "784",
       "period": "monthly",
@@ -43,7 +85,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 7,
       "title": "90 dossiers",
       "price": "967.50",
       "period": "monthly",
@@ -57,7 +99,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 8,
       "title": "110 dossiers",
       "price": "1151.70",
       "period": "monthly",
@@ -71,7 +113,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "130 doissiers",
       "price": "1345.50",
       "period": "monthly",
@@ -85,7 +127,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "170 dossiers",
       "price": "1686.40",
       "period": "monthly",
@@ -99,7 +141,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 11,
       "title": "190 doissiers",
       "price": "1844.90",
       "period": "monthly",
@@ -113,7 +155,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 12,
       "title": "200 dossiers",
       "price": "1930",
       "period": "monthly",

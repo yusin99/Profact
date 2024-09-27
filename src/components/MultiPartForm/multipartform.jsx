@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
@@ -13,7 +14,10 @@ import { createCheckoutSession } from "../../services/apiServices";
 // Initialize Stripe
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 const priceIds = {
+  '10 dossiers': import.meta.env.VITE_PRICE_10_DOSSIERS,
+  '20 dossiers': import.meta.env.VITE_PRICE_20_DOSSIERS,
   '30 dossiers': import.meta.env.VITE_PRICE_30_DOSSIERS,
+  '40 dossiers': import.meta.env.VITE_PRICE_40_DOSSIERS,
   '50 dossiers': import.meta.env.VITE_PRICE_50_DOSSIERS,
   '70 dossiers': import.meta.env.VITE_PRICE_70_DOSSIERS,
   '90 dossiers': import.meta.env.VITE_PRICE_90_DOSSIERS,
