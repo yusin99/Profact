@@ -304,7 +304,7 @@ const onSubmit = async (event) => {
       <div className="contact-form-placement row">
         <div className="col-lg-12">
           <div className="center-heading">
-            <h2 className="section-title">Multi Part Form</h2>
+            <h2 className="section-title">Formulaire</h2>
           </div>
         </div>
       </div>
@@ -322,7 +322,7 @@ const onSubmit = async (event) => {
                         name="email"
                         type="email"
                         className="form-control"
-                        placeholder="E-Mail Address"
+                        placeholder="Email"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -331,12 +331,12 @@ const onSubmit = async (event) => {
                   </div>
                   <div className="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <label>Password</label>
+                      <label>Mot de passe</label>
                       <input
                         name="password"
                         type="password"
                         className="form-control"
-                        placeholder="Password"
+                        placeholder="Mot de passe"
                         value={formData.password}
                         onChange={handleChange}
                         required
@@ -345,12 +345,12 @@ const onSubmit = async (event) => {
                   </div>
                   <div className="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <label>Confirm Password</label>
+                      <label>Confirmez mot de passe</label>
                       <input
                         name="confirmPassword"
                         type="password"
                         className="form-control"
-                        placeholder="Confirm Password"
+                        placeholder="Confirmez mot de passe"
                         value={formData.confirmPassword}
                         onChange={handleChange}
                         required
@@ -360,7 +360,7 @@ const onSubmit = async (event) => {
                   <div className="col-lg-12">
                     <fieldset>
                       <button type="button" onClick={handleNext} className="main-button">
-                        Next
+                      Suivant
                       </button>
                     </fieldset>
                   </div>
@@ -371,12 +371,12 @@ const onSubmit = async (event) => {
                   <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>Nom de la Société</label>
+                        <label>Nom de la société</label>
                         <input
                           name="nomSociete"
                           type="text"
                           className="form-control"
-                          placeholder="Nom de la Société"
+                          placeholder="Nom de la société"
                           value={formData.nomSociete}
                           onChange={handleChange}
                           maxLength="40"
@@ -430,10 +430,10 @@ const onSubmit = async (event) => {
                     <div className="buttons-container col-lg-12">
                       <fieldset>
                         <button type="button" onClick={handlePrevious} className="main-button">
-                          Previous
+                          Retour
                         </button>
                         <button type="button" onClick={handleNext} className="main-button">
-                          Next
+                         Suivant
                         </button>
                       </fieldset>
                     </div>
@@ -501,7 +501,7 @@ const onSubmit = async (event) => {
                     </div>
                     <div className="col-lg-12 col-md-12 col-sm-12">
                       <fieldset>
-                        <label>API Key VosFactures</label>
+                        <label>API clé VosFactures</label>
                         <input
                           name="apiKeyVosFactures"
                           type="text"
@@ -516,10 +516,10 @@ const onSubmit = async (event) => {
                     <div className="buttons-container col-lg-12">
                       <fieldset>
                         <button type="button" onClick={handlePrevious} className="main-button">
-                          Previous
+                          Retour
                         </button>
                         <button type="button" onClick={handleNext} className="main-button">
-                          Next
+                        Suivant
                         </button>
                       </fieldset>
                     </div>
@@ -624,7 +624,7 @@ const onSubmit = async (event) => {
                     <div className="buttons-container col-lg-12">
                       <fieldset>
                         <button type="button" onClick={handlePrevious} className="main-button">
-                          Previous
+                          Retour
                         </button>
                         <button type="submit" className="main-button">
                           VALIDER

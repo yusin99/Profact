@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 // Card.js
 import { Link } from 'react-router-dom';
+import "./card.css";
 
 /**
  * The `Card` function in JavaScript React renders a pricing card component with dynamic content and an
@@ -23,7 +24,8 @@ const Card = ({ pack, button }) => {
               <span className="currency">€</span>
             </div>
             <span className="period">{pack.period}</span>
-          </div>
+            {pack.oneTimePrice && <div className="periodOneTime">( Frais de paramétrage {pack.oneTimePrice}€ HT)</div>}
+            </div>
           {/* <ul className="list">
             {pack.features.map((item, index) => (
               <li key={index} className="active">{item}</li>

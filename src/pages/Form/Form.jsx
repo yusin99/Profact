@@ -41,7 +41,7 @@ function Form() {
       <section className="section colored pricing-bg" id="pricing-plans">
         <div className="container">
           <div className="row" style={{justifyContent: "center", alignItems: "center"}}>
-            <h5>Selected offer: </h5>
+            <h5>Offre séléctionnée: </h5>
             <Card  pack={selectedOffer} button={false}/>
           </div>
         </div>

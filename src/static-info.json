@@ -3,7 +3,8 @@
     {
       "id": 1,
       "title": "10 dossiers",
-      "price": "xxx.xx",
+      "price": "140.00",
+      "oneTimePrice": "200.00",
       "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
@@ -17,7 +18,8 @@
     {
       "id": 2,
       "title": "20 dossiers",
-      "price": "xxx.xx",
+      "price": "259.00",
+      "oneTimePrice": "200.00",
       "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
@@ -45,7 +47,7 @@
     {
       "id": 4,
       "title": "40 dossiers",
-      "price": "xxx.xx",
+      "price": "456.00",
       "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
@@ -60,7 +62,7 @@
       "id": 5,
       "title": "50 dossiers",
       "price": "565",
-      "period": "monthly",
+      "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
         "Lorem, ipsum dolor.",
@@ -74,7 +76,7 @@
       "id": 6,
       "title": "70 dossiers",
       "price": "784",
-      "period": "monthly",
+      "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
         "Lorem, ipsum dolor.",
@@ -88,7 +90,7 @@
       "id": 7,
       "title": "90 dossiers",
       "price": "967.50",
-      "period": "monthly",
+      "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
         "Lorem, ipsum dolor.",
@@ -102,7 +104,7 @@
       "id": 8,
       "title": "110 dossiers",
       "price": "1151.70",
-      "period": "monthly",
+      "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
         "Lorem, ipsum dolor.",
@@ -116,7 +118,7 @@
       "id": 9,
       "title": "130 doissiers",
       "price": "1345.50",
-      "period": "monthly",
+      "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
         "Lorem, ipsum dolor.",
@@ -130,7 +132,7 @@
       "id": 10,
       "title": "170 dossiers",
       "price": "1686.40",
-      "period": "monthly",
+      "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
         "Lorem, ipsum dolor.",
@@ -144,7 +146,7 @@
       "id": 11,
       "title": "190 doissiers",
       "price": "1844.90",
-      "period": "monthly",
+      "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
         "Lorem, ipsum dolor.",
@@ -158,7 +160,7 @@
       "id": 12,
       "title": "200 dossiers",
       "price": "1930",
-      "period": "monthly",
+      "period": "Tarif mensuel (€ HT)",
       "features": [
         "Lorem, ipsum dolor.",
         "Lorem, ipsum dolor.",
@@ -206,44 +208,160 @@
     }
   },
   "cguWelcomeText": {
-    "h1" : "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
-    "paragraph" : "« Enfin une solution efficace qui vous fais gagner du temps »",
+    "h1": "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
+    "paragraph": "« Enfin une solution efficace qui vous fais gagner du temps »",
     "buttonText": "Découvrez plus"
   },
   "mentionsLegalesWelcomeText": {
-    "h1" : "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
-    "paragraph" : "« Enfin une solution efficace qui vous fais gagner du temps »",
+    "h1": "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
+    "paragraph": "« Enfin une solution efficace qui vous fais gagner du temps »",
     "buttonText": "Découvrez plus"
   },
   "homeWelcomeText": {
-    "h1" : "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
-    "paragraph" : "« Enfin une solution efficace qui vous fais gagner du temps »",
+    "h1": "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
+    "paragraph": "« Enfin une solution efficace qui vous fais gagner du temps »",
     "buttonText": "Découvrez plus"
   },
   "tarificationWelcomeText": {
-    "h1" : "Tarification",
-    "paragraph" : "« Texte pour tarification »"
+    "h1": "Tarification",
+    "paragraph": "« Texte pour tarification »"
   },
   "cguText": [
     {
       "title": "1. Préambule / Définitions",
-      "text": "This is the introduction text of the CGU. It outlines the purpose and scope of the document."
+      "text": "Les présentes Conditions Générales d’Utilisation (CGU) régissent l’accès au Site et au Service qui y est proposé aux Utilisateurs. Pro Fact désigne l’éditeur du Site, du Service et des Options. Le Site désigne le site internet accessible à l’adresse internet profact.sinis.io. Les Utilisateurs s’entendent de toute personne utilisant le Site et ayant souscrit au Service et éventuellement aux Options. Il doit nécessairement s’agir d’un professionnel et notamment d’un professionnel libéral, d’un auto-entrepreneur, d’un artisan, d’un commerçant ou d’une personne morale. Un Compte désigne l’espace personnel de l’Utilisateur sur le Site permettant d’accéder au Service et aux Options. Le Service proposé est l’accès et l’utilisation d’un logiciel depuis le Site (SaaS). Le Service permet aux Utilisateurs de générer des Documents Commerciaux. La Finalité du Service est de proposer aux Utilisateurs de gérer leur activité commerciale et administrative en leur permettant d’établir des Documents Commerciaux et des factures. Les Documents Commerciaux désignent les documents qui vont être générés par le Service et les Options, à savoir notamment les devis et factures, les cessions de créances, les ordres réparations. Les Options sont des compléments au Service et permettent à l’Utilisateur une meilleure expérience en vue de la Finalité du Service. Elles peuvent être souscrites par l’Utilisateur, selon des conditions financières à définir, et permettent d’accéder à des Modules Additionnels. Les Modules Additionnels sont des Options. Ils viennent s’ajouter au Service en fonction des besoins et des souhaits de l’Utilisateur."
     },
     {
       "title": "1.2 Pré-requis",
-      "text": "This section explains the responsibilities of the user when using the service, including compliance with laws and regulations."
+      "text": "Pour accéder et utiliser le Site et le Service, l’Utilisateur doit disposer d’un compte “vosfactures.fr”, les coûts de celui-ci seront supportés par l’Utilisateur."
     },
     {
-      "title": "Section 3: Data Protection",
-      "text": "Details about how user data is protected and what measures are in place to ensure privacy."
+      "title": "2. Accès au Site et au Service",
+      "text": "Pour accéder et utiliser le Service sur le Site, vous devez être le représentant légal de l’Utilisateur ou être dûment autorisé par le représentant légal de l’Utilisateur. L’Utilisateur doit s’assurer que le Service et les Options correspondent à ses besoins avant d’ouvrir un Compte sur le Site, accéder au Service et éventuellement souscrire aux Options. L’ouverture d’un Compte sur le Site est gratuite et nécessaire pour accéder au Service et souscrire aux Options. L’accès au Service et la souscription aux Options sera uniquement possible à l’Utilisateur ayant préalablement renseigné les champs sollicités pour la création du Compte. L’Utilisateur renseignera en conséquence, sur l’interface qui lui sera dédiée et à laquelle il accèdera à partir du Site, un formulaire contenant les informations requises de l’Utilisateur. Toute inscription inexacte ou incomplète ne sera pas prise en compte, ne permettra pas de créer un Compte et donc d’accéder au Service et souscrire aux Options. En utilisant le Site, l’Utilisateur a pleinement conscience du fait que Pro Fact stocke les données dans ses systèmes d’information. L’Utilisateur garantit également l’exactitude des données communiquées à Pro Fact. Toute éventuelle modification de ces données devra être communiquée à Pro fact. L’accès de l’Utilisateur à son Compte peut nécessiter l’utilisation de codes d’accès personnels. L’Utilisateur doit prendre les mesures nécessaires afin d’assurer le secret de ses codes qu’il peut changer à tout moment. Toute utilisation de son identifiant et de son mot de passe fait présumer que le Service et les Options ont été personnellement utilisés par l’Utilisateur. Par mesure de précaution, le nombre de tentatives d’accès au Compte pourrait être limité afin de prévenir un usage frauduleux desdits codes. L’Utilisateur s’engage à immédiatement notifier à Pro Fact du vol ou de la perte de son identifiant et/ou de son mot de passe"
     },
     {
-      "title": "Section 4: Service Limitations",
-      "text": "This section describes the limitations of the service, including disclaimers and limitations of liability."
+      "title": "2.1. Modalités d'abonnement",
+      "text": "L'accès au Service se fait par abonnement dans le cadre d’une licence à laquelle est attribuée un coded'accès complété d'un mot de passe. Cette licence est à caractère non exclusif et non transmissible à destiers.L'abonnement est souscrit pour une période d’une année et est renouvelable par tacite reconduction pourdes périodes d’égales durées, sauf dénonciation adressée par lettre recommandée AR 2 mois avantchaque échéance, à l’adresse suivante :Pro FactA l’attention du service client16, Montcourtioux 18370 Saint SaturninLa fin de l’abonnement rend immédiatement indisponible l’accès au service et la suppression desdossiers de l'Utilisateur. L'abonné s'engage à informer le service commercial Pro Fact de toutemodification des informations communiquées lors de sa demande d'abonnement, notamment descoordonnées de facturation, références bancaires ou numéro de carte bancaire."
     },
     {
-      "title": "Section 5: Termination",
-      "text": "Information about the conditions under which the service may be terminated and the consequences thereof."
+      "title": "3. Objet des CGU",
+      "text": "Les présentes CGU ont pour objet d’accorder à l’Utilisateur un droit personnel, non cessible et non exclusif d’accès et d’utilisation du Service à titre gracieux et des Options à titre payant selon des conditions financières à définir"
+    },
+    {
+      "title": "4. Mises à jour du Logiciel",
+      "text": "Toutes les mises à jour et documentations, gratuites et/ou payantes, qui font partie intégrante du Service et des Options sont soumises aux conditions des présentes CGU."
+    },
+    {
+      "title": "5. Obligations de l'utilisateur",
+      "text": "L’Utilisateur s’engage à utiliser le Site :Sous sa propre identité ;Uniquement pour des activités prévues aux présentes CGU ;En respectant les règles légales et réglementaires en vigueur ;En lien avec son objet social ;En ne causant aucun trouble à l’ordre public.L’Utilisateur devra actualiser ses informations personnelles afin qu’elles soient constamment à jour etexactes.En cas de non-respect des obligations visées aux présentes CGU par l’Utilisateur, Pro Fact pourrasuspendre de plein droit et sans préavis l’accès au Service et aux Options. Cette suspension d’accès auService et aux Options ne donnera droit à aucune indemnité au profit de l’Utilisateur. L’Utilisateur autorisePro Fact à collecter et à utiliser les informations techniques rassemblées dans le cadre des servicesd’assistance qui lui sont fournis, le cas échéant, et qui portent sur le Service et les Options afinnotamment de les améliorer en vue de la finalité du service.Le cas échéant, l’Utilisateur autorise expressément l’exploitation de son logo à titre de référence par ProFact"
+    },
+    {
+      "title": "5.1 Obligations de Pro Fact",
+      "text": "Pro Fact s’engage à déployer ses meilleurs efforts pour mettre à la disposition de l’Utilisateur le Serviceet les Options souscrites afin qu’elles puissent répondre pleinement à la finalité du service. LesUtilisateurs bénéficient des mises à jour du Service et des éventuelles Options. Pro Fact assurera unservice d’assistance téléphonique limité à l’Utilisateur (par courrier électronique, site Web, ou téléphone).Le service d’assistance téléphonique est uniquement proposé en français. Les informations techniquescollectées par Pro Fact sont anonymisées et ne permettent pas l’identification de l’Utilisateur."
+    },
+    {
+      "title": "6. Limitation de responsabilité à l'égard du service Internet",
+      "text": "L’Utilisateur reconnaît les limites d’une utilisation du Service et des éventuelles Options sur le Site accessible uniquement par le réseau Internet. Ainsi, il ne pourra pas reprocher à Pro Fcat des problèmes de fiabilité des transmissions de données opérées sur Internet et les éventuels détournements de données liés à l’utilisation d’Internet"
+    },
+    {
+      "title": "6.1. Limitation de responsabilité à l’égard de l’accessibilité au Service et de l’utilisation du Service",
+      "text": "Pro Fact est soumis à une obligation de moyens."
+    },
+    {
+      "title": "6.1.1. Accessibilité du Site",
+      "text": "Pro Fact s’efforce de maintenir le Site accessible à tout moment et ainsi permettre l’utilisation du Service et des Options. Toutefois, Pro Fact ne peut le garantir et l’Utilisateur pourrait souffrir d’interruptions notamment pour des raisons de maintenance, de mise à jour ou d’accessibilité au Service."
+    },
+    {
+      "title": "6.1.2. Destination du Service et des Options",
+      "text": "Le Service est conçu et proposé comme étant un service à usage général, il n’est pas destiné à répondreaux besoins particuliers d’un quelconque Utilisateur. L’Utilisateur reconnaît que le Service n’est pasexempt d’erreurs et qu’il lui est fortement recommandé de sauvegarder régulièrement ses fichiers. LesOptions sont conçues comme étant des services à usage particulier, destinés à répondre aux besoinsparticuliers des Utilisateurs. L’Utilisation reconnaît que les Options ne sont pas exemptes d’erreurs et qu’illui est fortement recommandé de sauvegarder régulièrement ses fichiers."
+    },
+    {
+      "title": "6.1.3. Besoins de l'Utilisateur",
+      "text": "Pro Fact ne garantit pas que le Service et/ou les Options soient conformes aux besoins de l’Utilisateur, ni qu’ils fonctionnent correctement dans n’importe quel environnement informatique matériel ou logiciel ouque leur fonctionnement sera ininterrompu ou infaillible. En cas de perte de données ou de logiciels et cequelle qu’en soit la cause, Pro Fact ne pourra être tenu responsable de cette perte dans la mesure oùl’Utilisateur garde la responsabilité de la bonne réalisation de ses sauvegardes (version papier, tableurinformatique…) et de l’utilisation du Service et des Options dont il a acquis les licences. Étant égalementlogiquement entendu que la mise en ligne par l’Utilisateur de données fausses ou erronées ne pourra enaucun cas engager la responsabilité de Pro Fact"
+    },
+    {
+      "title": "6.1.4. Utilisation du Service",
+      "text": "Pro Fact ne peut être tenu responsable envers l’Utilisateur, ou envers toute autre personne, de quelquedommage-intérêt que ce soit découlant directement ou indirectement de l’utilisation, totale ou partielle, del’accès ou de l’incapacité d’accéder au Service. L’exonération de responsabilité de Pro Fact s’appliqueégalement à toute décision ou autre mesure prise par l’Utilisateur, ou par toute autre personne, enconsidération de l’utilisation du Service, ou sur la foi de l’information y contenue, de toute erreur ouomission du Service. Par ailleurs, Pro Fact n’assume également aucune responsabilité pour toute action,erreur, omission, utilisation, mauvaise utilisation et conséquences découlant de l’utilisation partielle outotale du Service et/ou des Options. L’Utilisateur assume donc seul tous les risques et périls quidécoulent ou peuvent découler de l’utilisation du Service."
+    },
+    {
+      "title": "6.1.5. Utilisation des Options",
+      "text": "Dans l’hypothèse où des dommages et intérêts, ou toutes réparations de toute nature, viendraient à être prononcés à l’encontre de Pro Fact concernant l’utilisation des Options, ces derniers ne pourront excéder les sommes versées par l’Utilisateur à Pro Fact au titre des Options souscrites dans l’année au cours de laquelle s’est produit l’incident ayant fondé la demande de réclamation."
+    },
+    {
+      "title": "6.1.6. Suspension du Service",
+      "text": "Dans le cas où Pro Fact mettrait fin à l’autorisation d’utilisation du Service, quelle qu’en soit la raison, il ne saurait être tenu d’une quelconque indemnisation de ce fait."
+    },
+    {
+      "title": "6.1.7. Suspension des Options",
+      "text": "Dans le cas où Pro Fact mettrait fin à l’autorisation d’utilisation des Options, il saurait être tenud’indemniser l’Utilisateur, sous un préavis d’un mois, au prorata de la durée restante de validité desOptions, déduction faite de la durée d’utilisation réalisée. Pro Fact ne saurait néanmoins être tenu d’unequelconque indemnisation si la fin d’autorisation d’utilisation des Options est unilatéralement due par lenon-respect des présentes CGU par l’Utilisateur, la suspension des Options étant alors de plein droit."
+    },
+    {
+      "title": "6.1.8. Relations de l'Utilisateur",
+      "text": "Par ailleurs, Pro Fact ne saurait voir sa responsabilité engagée dans les relations de l’Utilisateur avec des tiers, notamment dans le cadre des préjudices indirects qui seraient subis par l’Utilisateur tels que pertes de bénéfices commerciaux, interruptions d’activité, perte de données enregistrées, pertes d’informations commerciales ou toute autre perte pécuniaire."
+    },
+    {
+      "title": "6.1.9. Disposition contraire",
+      "text": "Ces limitations ne sont pas applicables à une quelconque responsabilité qui ne peut être exclue ou limitée en vertu des lois applicables."
+    },
+    {
+      "title": "6.1.10. Continuité de la clause",
+      "text": "Les stipulations de la présente clause continueront à s’appliquer même à l’issue des relations des parties aux présentes."
+    },
+    {
+      "title": "6.1.11. Limitation de responsabilité à l’égard des tierces parties faisant l’objet de publicité dans Pro Fact",
+      "text": "Le Logiciel Pro Fact contient des liens vers des sites web de tierces parties. Bien que soucieux de laqualité des liens diffusés sur le site profact.sinis.io, la société Pro Fact n’assume aucune responsabilitéquant au contenu desdits sites ou plus généralement de tout site en lien avec lesdits sites de tiercesparties. La responsabilité de Pro Fact ne pourra donc être engagée pour tous les dommages ou pertes,directement ou indirectement causés par l’utilisation de ces contenus ou produits ou services disponiblessur ou par les sites web de tierces parties, et ne saurait dès lors être tenu responsable de la confianceque vous accordez à ces sites de tierces parties. Par conséquent, si vous décidez de cliquer et d’accéderà l’un des services proposés par l’un de ces sites, cela est fait de votre propre chef. Pro Fact décline donctoute responsabilité découlant des produits ou services fournis par ces sites de tierces parties."
+    },
+    {
+      "title": "7. Force majeure",
+      "text": "La responsabilité de l’Utilisateur et de Pro Fact ne pourraient être recherchées si l’exécution du contratest retardée ou empêchée en raison d’un cas de force majeure ou d’un cas fortuit, du fait de l’autre partieou d’un tiers ou de causes extérieures telles que les conflits sociaux ; intervention des autorités civiles oumilitaires ; catastrophes naturelles ; incendies ; dégâts des eaux ; interruption, perturbation ou blocage duréseau de télécommunications ou du réseau électrique ; blocage des moyens de transport oud’approvisionnement pour quelque raison que ce soit, etc. Si le cas de force majeure a une duréed’existence supérieure à un (1) mois, les présentes CGU seront résiliées automatiquement, sauf accordcontraire entre l’Utilisateur et Pro Fact. Pro Fact se réserve la possibilité de rendre le Service et lesOptions momentanément indisponibles pour des raisons de maintenance ou de procéduresd'actualisation."
+    },
+    {
+      "title": "8. Données personnelles",
+      "text": "Les données personnelles et confidentielles que l’Utilisateur renseigne lorsqu’il utilise le Service et lesOptions sont strictement nécessaires au traitement de son Compte, à l’utilisation du Service et desOptions, aux besoins du support technique, au bon fonctionnement et à l’amélioration du Service et desOptionsPar ailleurs, Pro Fact pourra entreprendre des études et analyses statistiques sur l’utilisation et latypologie des Utilisateurs du Service et des Options.Ces données nominatives sont destinées à la société Pro Fact. Les données nominatives ne sauraientêtre cédées ou louées à des tiers sans l’accord exprès et préalable de l’Utilisateur. Elles sont conservéesau sein de l’Union Européenne tout au long de la relation contractuelle de l’Utilisateur avec Pro Fact puisarchivées en cas d’obligation légale ou réglementaire.Les données traitées à des fins de création et de gestion du compte Utilisateur sont supprimées sous 5ans à compter de la dernière connexion ou demande de suppression du compte Utilisateur. Les donnéestraitées à des fins de marketing sont supprimées sous 5 ans à compter de la demande de désinscriptionà la réception d’informations marketing.Conformément au Règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016relatif à la protection des personnes physiques à l’égard du traitement des données à caractère personnelet à la libre circulation de ces données, l’Utilisateur dispose d’un droit d’accès, de rectification,d’effacement et de portabilité sur l’ensemble de ses données personnelles. L’Utilisateur disposeégalement du droit à la limitation du traitement de ses données ainsi que du droit de s’opposer à leurtraitement.Il pourra exercer ses droits en adressant un e-mail ou un courrier postal comportant l’ensemble desjustificatifs justifiant de sa qualité (RCS/Répertoire des métiers et carte d’identité) à l’attention duresponsable de traitement :Pro FactA l’attention du service client16, Montcourtioux 18370 Saint Saturninfacturesprofactmontargis@gmail.comEn cas de litige, l’Utilisateur est en droit d’introduire une réclamation auprès de la CNIL et définir le sortde ses données.Pour davantage d’information sur le traitement des données relatives à l’Utilisateur et ses droits,l’Utilisateur est invité à consulter la Politique de confidentialité."
+    },
+    {
+      "title": "9. Propriété intelectuelle",
+      "text": "Tous les éléments du Site et notamment sa présentation et son contenu, notamment visuels et sonores,ainsi que le Service, les Options et l’ensemble de la technologie sous-jacente, et également les marqueset signes utilisés sont protégés par la propriété intellectuelle et notamment le droit des marques, le droitd’auteur et les droits voisins et ce dans le monde entier, et aucun autre droit que l’utilisation dans le cadredes présentes CGU n’est accordée à l’Utilisateur.L’Utilisateur s’engage à accomplir les seuls actes permettant une utilisation conforme à la destination duSite, du Service, des Options et de leurs mises à jour.La reproduction de tous documents publiés sur le Site est seulement autorisée aux fins exclusivesd’information pour un usage personnel et privé, toute reproduction et toute utilisation de copies réaliséesà d’autres fins étant expressément interdites.Il est ainsi expressément interdit de copier, modifier, créer une œuvre dérivée, inverser la conception oul’assemblage ou de toute autre manière tenter de trouver le code source (à l’exception des cas prévuspar la loi), utiliser des versions modifiées, vendre, attribuer, sous-licencier ou transférer de quelquemanière que ce soit le Site, le Service, les Options et leurs mises à jour.En conséquence, l’Utilisateur s’interdit tout agissement ainsi que tout acte, pouvant porter atteintedirectement ou indirectement aux droits de propriété intellectuelle applicables au Site, au Service, auxOptions et à leurs mises à jour.L’Utilisateur reste toutefois propriétaire de l’ensemble des données et informations transmises par luidans le cadre de l’exécution des présentes CGU."
+    },
+    {
+      "title": "10. Confidentialité",
+      "text": "Chacune des parties s’engage à faire ses meilleurs efforts afin de préserver la confidentialité desinformations confidentielles qui lui sont confiées par l’autre partie.Ne sont pas des informations confidentielles celles qui se trouvent dans le domaine public et celles dontla partie réceptrice était en possession avant leur communication par l’autre partie.Les termes de cette obligation sont valables pendant toute la durée de validité du présent contrat etpendant deux (2) ans après son expiration."
+    },
+    {
+      "title": "11. Renonciation",
+      "text": "Le fait que Pro Fact ne revendique pas l’application d’une clause quelconque des présentes CGU ou acquiesce à son inexécution, que ce soit de manière permanente ou temporaire, ne pourra être interprété comme une renonciation aux droits qui découlent pour lui de ladite clause."
+    },
+    {
+      "title": "11.1. Autonomie des clauses contractuelles",
+      "text": "Si une des conditions des présentes CGU était déclarée illégale ou contraire à l’ordre public par jugement définitif, un tel jugement n’aurait aucunement pour effet d’annuler ou autrement affecter quelque autre clause ou condition des présentes CGU. Les clauses doivent être interprétées telles que formulées, indépendamment du titre des clauses et/ou articles."
+    },
+    {
+      "title": "11.2. Modification des CGU",
+      "text": "Les présentes CGU sont susceptibles d’être modifiées par Pro Fact à tout moment, notamment en cas d’évolutions techniques, légales ou jurisprudentielles ou lors de la mise en place de nouveaux services. L’Utilisateur sera informé de ces modifications et pourra choisir de se désabonner du Service et des Options si elles ne lui conviennent pas."
+    },
+    {
+      "title": "11.3. Election de domicile",
+      "text": "Les parties élisent domicile aux adresses indiquées lors de son inscription pour l’Utilisateur et à son siège pour Pro Fact."
+    },
+    {
+      "title": "12. Référence commerciale",
+      "text": "Pro Fact pourra faire état du nom et de la marque de l’Utilisateur comme référence commerciale en lien avec l’utilisation du Service et des Options."
+    },
+    {
+      "title": "13. Conditions tarifaires et paiements",
+      "text": "Le paiement des abonnements s’effectue selon les tarifs et modalités de paiements en vigueur sur le siteinternet https://profact.sinis.io/ .● Tarifs des abonnements :Les tarifs sont accessibles sur le site internet https://profact.sinis.io , indiqués en euros et s’entendent «Toutes Taxes Comprises » (TTC).Le prix TTC inclus une TVA avec le taux en vigueur applicable au jour de la commande de : 20% pour lesabonnements ;● Durée et validité des offres et prix proposés :Notre société s’accorde le droit de modifier ses tarifs à tout moment.Toutefois, elle s’engage à facturer les prestations de services commandées au prix initial :– jusqu’à l’échéance des 12 mois d’engagementModalités de paiements :L’abonné est seul responsable du paiement de l’ensemble des sommes dues au titre de l’abonnement.Un tiers peut toutefois régler l’abonnement pour le compte de l’abonné, sans que cela ne lui attribue dedroits particuliers."
+    },
+    {
+      "title": "13.1. Incident de paiement",
+      "text": "En cas de paiement infructueux effectué par un des moyens de paiement possibles sur le site internet, etsauf en cas de vol ou d’opposition, notre prestataire de paiement sécurisé Stripe pourra être amené àreprésenter le paiement jusqu’à sa régularisation.Toutefois, en cas de défauts de paiement répétés, ce quel que soit le mode de paiement choisi et aprèsrelances de notre entreprise restées infructueuses, notre site se réserve le droit de résilier l’abonnementen cours, voire de supprimer toute possibilité de réabonnement ultérieur pour une durée d’un an àcompter du jour de notification de la résiliation. Il est précisé qu'en cas de non paiement, l'ensemble desdossiers de l’Utilisateur seront supprimés."
+    },
+    {
+      "title": "14. Résiliation",
+      "text": "Pro Fact pourra résilier à effet immédiat le Compte de l’Utilisateur si ce dernier ne respecte pas les dispositions des présentes CGU et/ou commet des agissements préjudiciables à Pro Fact."
+    },
+    {
+      "title": "15. Loi applicable et attribution de juridiction",
+      "text": "Le présent Contrat est soumis au droit français. En cas de difficulté relative à l’interprétation et/ou l’application des présentes CGU, le présent contrat sera soumis à la compétence des tribunaux de Bourges. Avant la saisine des Tribunaux et conformément à la loi, les Parties devront avoir tenté de régler à l’amiable leur différend."
     }
   ],
   "mentionsLegalesText": ""

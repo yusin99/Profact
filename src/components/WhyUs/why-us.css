@@ -15,7 +15,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-image: url(/public/images/banner-car.png);
+    background-image: url(/public/images/banner-car-1.png);
     z-index: 2;
     top: -20%;
     left: -20%;
@@ -138,7 +138,7 @@
     width: 140%;
     height: 140%;
     opacity: .90;
-    background-image: url(/public/images/banner-car.png);
+    background-image: url(/public/images/banner-car-1.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

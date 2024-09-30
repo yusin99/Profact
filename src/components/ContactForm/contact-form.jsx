@@ -76,7 +76,7 @@ function ContactForm() {
         <div className="contact-form-placement row">
           <div className="col-lg-12">
             <div className="center-heading">
-              <h2 className="section-title">Contact</h2>
+              <h2 className="section-title">Formulaire de contacte</h2>
             </div>
           </div>
           <div className="col-lg-6">
@@ -93,12 +93,12 @@ function ContactForm() {
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="name" type="text" className="form-control" id="name" placeholder="Full Name" required="" />
+                      <input name="name" type="text" className="form-control" id="name" placeholder="Nom complét" required="" />
                     </fieldset>
                   </div>
                   <div className="col-lg-6 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="email" type="email" className="form-control" id="email" placeholder="E-Mail Address" required="" />
+                      <input name="email" type="email" className="form-control" id="email" placeholder="Email" required="" />
                     </fieldset>
                   </div>
                   <div className="col-lg-12">
@@ -111,14 +111,14 @@ function ContactForm() {
                         onChange={(e) => setSelectedReason(e.target.value)}
                         required
                       >
-                        <option value="">Select a reason</option>
+                        <option value="">Raison</option>
                         <option value="Reason 1">Reason 1</option>
                         <option value="Reason 2">Reason 2</option>
-                        <option value="None of the above">None of the above</option>
+                        <option value="Aucun des choix ci-dessus">Aucun des choix ci-dessus</option>
                       </select>
                     </fieldset>
                   </div>
-                  {selectedReason === "None of the above" && (
+                  {selectedReason === "Aucun des choix ci-dessus" && (
                     <div className="col-lg-12">
                       <fieldset>
                         <input
@@ -126,7 +126,7 @@ function ContactForm() {
                           type="text"
                           className="form-control"
                           id="customReason"
-                          placeholder="Please specify your reason"
+                          placeholder="Spécifiez votre raison"
                           value={customReason}
                           onChange={(e) => setCustomReason(e.target.value)}
                           required
@@ -136,12 +136,12 @@ function ContactForm() {
                   )}
                   <div className="col-lg-12">
                     <fieldset>
-                      <textarea name="message" rows="6" className="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                      <textarea name="message" rows="6" className="form-control" id="message" placeholder="Votre message" required=""></textarea>
                     </fieldset>
                   </div>
                   <div className="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" className="main-button">Send Message</button>
+                      <button type="submit" id="form-submit" className="main-button">Envoyer</button>
                     </fieldset>
                   </div>
                 </div>

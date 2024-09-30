@@ -5,3 +5,7 @@
 h2{
     text-align: center;
 }
+
+.cgu-section, .cgu-section h4{
+    padding: 20px 0;
+}
