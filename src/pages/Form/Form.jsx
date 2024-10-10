@@ -37,6 +37,7 @@ function Form() {
         h1={tarificationWelcomeText.h1} 
         paragraph={tarificationWelcomeText.paragraph} 
         buttonText={tarificationWelcomeText.buttonText}
+        lien={tarificationWelcomeText.lien}
       />
       <section className="section colored pricing-bg" id="pricing-plans">
         <div className="container">

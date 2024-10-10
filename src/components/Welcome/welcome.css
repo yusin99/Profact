@@ -46,7 +46,6 @@
   color: #fff;
   line-height: 28px;
   letter-spacing: 0.25px;
-  margin-bottom: 40px;
   position: relative;
 }
 
@@ -67,7 +66,6 @@
   .welcome-area .header-text p {
     text-align: center;
     color: #fff;
-    margin-bottom: 20px;
   }
 }
 
@@ -114,4 +112,8 @@
     line-height: 22px;
     margin-bottom: 40px;
   }
+}
+
+.button-margin{
+  margin-top: 2rem;
 }

@@ -224,7 +224,8 @@
   },
   "tarificationWelcomeText": {
     "h1": "Tarification",
-    "paragraph": "« Texte pour tarification »"
+    "paragraph": "PRE-REQUIS: Avant de souscrire à un abonnement, veuillez vous assurer d'avoir les informations suivantes à portée de main : votre adresse e-mail, un mot de passe, le nom de votre société, le numéro SIRET, le numéro de TVA, le capital social, un numéro de téléphone, ainsi que les nom et prénom du dirigeant. Vous aurez également besoin de l'URL de votre compte VosFactures, de votre clé API VosFactures, de votre taux horaire HT, de la date d'édition de votre Kbis et de votre crédit d'abonnement. Remarque importante : Si vous n'avez pas encore de compte VosFactures, vous devez d'abord en créer un en visitant le site suivant : ",
+    "lien": "https://vosfactures.fr/tarifs?partner=xbivek"
   },
   "cguText": [
     {
