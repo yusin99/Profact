@@ -10,7 +10,7 @@ directly access the `staticInfo` object.
 */
 
 function Tarification({ staticInfo }) { // Use destructuring correctly to get staticInfo prop
-  const [data, setData] = useState({ pricingPlans: [], otherInfo: {} });
+  const [data, setData] = useState({ pricingPlans: staticInfo.pricingPlans, otherInfo: {} });
   useEffect(() => {
     setData(staticInfo);
   }, [staticInfo]);

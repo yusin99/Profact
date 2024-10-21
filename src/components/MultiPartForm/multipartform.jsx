@@ -9,27 +9,14 @@ import "./multipartform.css"
 import { loadStripe } from '@stripe/stripe-js';
 import { openDB } from "idb";
 import DOMPurify from 'dompurify';
-import { createCheckoutSession } from "../../services/apiServices";
+import { createCheckoutSession, fetchSubscriptionPlans } from "../../services/apiServices";
 
 // Initialize Stripe
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
-const priceIds = {
-  '10 dossiers': import.meta.env.VITE_PRICE_10_DOSSIERS,
-  '20 dossiers': import.meta.env.VITE_PRICE_20_DOSSIERS,
-  '30 dossiers': import.meta.env.VITE_PRICE_30_DOSSIERS,
-  '40 dossiers': import.meta.env.VITE_PRICE_40_DOSSIERS,
-  '50 dossiers': import.meta.env.VITE_PRICE_50_DOSSIERS,
-  '70 dossiers': import.meta.env.VITE_PRICE_70_DOSSIERS,
-  '90 dossiers': import.meta.env.VITE_PRICE_90_DOSSIERS,
-  '110 dossiers': import.meta.env.VITE_PRICE_110_DOSSIERS,
-  '130 dossiers': import.meta.env.VITE_PRICE_130_DOSSIERS,
-  '170 dossiers': import.meta.env.VITE_PRICE_170_DOSSIERS,
-  '190 dossiers': import.meta.env.VITE_PRICE_190_DOSSIERS,
-  '200 dossiers': import.meta.env.VITE_PRICE_200_DOSSIERS,
-};
 
-function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
+function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures, offerId }) {
   const [step, setStep] = useState(1);
+  const [priceId, setPriceId] = useState(null);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -63,7 +50,23 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures }) {
         creditAbonnement: dossiers[0]
       }));
     }
-  }, [offerTitle]);
+
+    const fetchPriceId = async () => {
+      try {
+        const fetchedPriceIds = await fetchSubscriptionPlans();
+        const selectedOffer = fetchedPriceIds.find(offer => offer.id === offerId);
+        if (selectedOffer) {
+          setPriceId(selectedOffer.id);
+          console.log(selectedOffer.id)
+        } else {
+          console.error('Offer not found');
+        }
+      } catch (error) {
+        console.error('Failed to fetch price ID:', error);
+      }
+    };
+    fetchPriceId();
+  }, [offerTitle, offerId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -264,7 +267,7 @@ const onSubmit = async (event) => {
 
   try {
     // Get the correct priceId based on the offerTitle
-    const priceId = priceIds[offerTitle];
+    console.log(priceId + "HI")
 
     if (!priceId) {
       throw new Error('Invalid offer title or missing price ID');

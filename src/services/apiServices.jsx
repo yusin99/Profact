@@ -27,6 +27,33 @@ export const fetchCheckoutSession = async (sessionId) => {
   return response.json();
 };
 
+
+/**
+ * Fetches subscription plans from the backend API.
+ * This function makes a GET request to retrieve the available subscriptions.
+ *
+ * @returns {Promise<Object[]>} - A promise that resolves to the list of subscription plans.
+ * @throws {Error} - Throws an error if the HTTP request fails or returns a non-2xx status code.
+ */
+export const fetchSubscriptionPlans = async () => {
+  const token = await getAuthToken();
+  const response = await fetch(import.meta.env.VITE_API_SUBSCRIPTIONS, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`HTTP status ${response.status}: ${text}`);
+  }
+
+  return response.json();
+};
+
 /**
  * Uploads form data to a backend server using a POST request.
  * This function sends form data to the server and returns the server's response.

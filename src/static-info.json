@@ -217,6 +217,16 @@
     "paragraph": "« Enfin une solution efficace qui vous fais gagner du temps »",
     "buttonText": "Découvrez plus"
   },
+  "mentionsLegalesContent": [
+    {
+      "title": "Éditeur du site",
+      "text": "Société : PRO FACT\nForme juridique : Société par Actions Simplifiée (SAS)\nSiège social : 16 LD Montcourtioux, 18370 Saint-Saturnin\nSIRET : 978 933 943 00018\nRCS : Bourges\nCapital social : 100 €\nNuméro de TVA : FR62978933943\nDirecteur de la publication : Ali Chane (Président)"
+    },
+    {
+      "title": "Hébergement du site",
+      "text": "Hébergeur : INFOMANIAK\nSiège social : Rue Eugène-Marziano 25, 1227 Genève, Suisse\nSite web : infomaniak.com"
+    }
+  ],
   "homeWelcomeText": {
     "h1": "Vous en avez assez de passer des heures sur la gestion de vos dossiers bris de glaces et carrosseries ? ",
     "paragraph": "« Enfin une solution efficace qui vous fais gagner du temps »",

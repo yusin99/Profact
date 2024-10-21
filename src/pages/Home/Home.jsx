@@ -1,4 +1,3 @@
-import Loader from '../../components/Loader/loader';
 import Header from '../../components/Header/header';
 import Welcome from '../../components/Welcome/welcome';
 import SmallFeature from '../../components/SmallFeatures/small-feature';
@@ -7,15 +6,29 @@ import WhyUsSection from '../../components/WhyUs/why-us';
 import ContactForm from '../../components/ContactForm/contact-form';
 import Footer from '../../components/Footer/footer';
 import staticInfo from "../../static-info.json";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import BigFeatureLeft from '../../components/FeaturesComponents/big-feature-left';
 import BigFeatureRight from '../../components/FeaturesComponents/big-feature-right';
 import Demonstration from '../../components/Demonstration/demonstration';
+import { fetchSubscriptionPlans } from '../../services/apiServices';
+
 
 function Home() {
-  const { features, pricingPlans, otherInfo, homeWelcomeText } = staticInfo;
+  const { features, otherInfo, homeWelcomeText } = staticInfo;
+  const [pricingPlans, setPricingPlans] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const getPricingPlans = async () => {
+      try {
+        const plans = await fetchSubscriptionPlans();
+        setPricingPlans(plans);
+      } catch (error) {
+        console.error('Failed to fetch pricing plans:', error);
+      }
+    };
+    
+    getPricingPlans();
   }, []);
   return (
     <div className="wrapper">
@@ -29,7 +42,7 @@ function Home() {
       <BigFeatureLeft title={features.bigFeatureFive.title} text={features.bigFeatureFive.text} image={features.bigFeatureFive.image} />
       <BigFeatureRight title={features.bigFeatureSix.title} text={features.bigFeatureSix.text} image={features.bigFeatureSix.image} />
       <WhyUsSection />
-      <Tarification staticInfo={{ pricingPlans, otherInfo }} />
+      {pricingPlans && <Tarification staticInfo={{ pricingPlans, otherInfo }} />}
       <Demonstration />
       <ContactForm />
       <Footer />

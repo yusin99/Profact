@@ -15,16 +15,16 @@ const Card = ({ pack, button }) => {
     >
       <div className={`pricing-item ${pack.active ? "active" : ""}`}>
         <div className="pricing-header">
-          <h3 className="pricing-title">{pack.title}</h3>
+          <h3 className="pricing-title">{pack.libelle}</h3>
         </div>
         <div className="pricing-body">
           <div className="price-wrapper">
             <div style={{display: "flex", justifyContent:"center", alignItems:"center"}}>
-              <span className="price">{pack.price}</span>
+              <span className="price">{pack.montantHt}</span>
               <span className="currency">€</span>
             </div>
-            <span className="period">{pack.period}</span>
-            {pack.oneTimePrice && <div className="periodOneTime">( Frais de paramétrage {pack.oneTimePrice}€ HT)</div>}
+            <span className="period">Tarif mensuel (€ HT)</span>
+            {pack.fraisParametrage && <div className="periodOneTime">( Frais de paramétrage {pack.fraisParametrage}€ HT)</div>}
             </div>
           {/* <ul className="list">
             {pack.features.map((item, index) => (
