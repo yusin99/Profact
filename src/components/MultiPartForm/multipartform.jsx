@@ -57,7 +57,6 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures, off
         const selectedOffer = fetchedPriceIds.find(offer => offer.id === offerId);
         if (selectedOffer) {
           setPriceId(selectedOffer);
-          console.log(selectedOffer.id)
         } else {
           console.error('Offer not found');
         }
@@ -266,9 +265,6 @@ const onSubmit = async (event) => {
   await db.put('formDataStore', submissionData, 'formData');
 
   try {
-    // Get the correct priceId based on the offerTitle
-    console.log(priceId)
-
     if (!priceId) {
       throw new Error('Invalid offer title or missing price ID');
     }
