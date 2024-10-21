@@ -16,10 +16,8 @@ export const updateFormDataWithCheckoutInfo = async (sessionData) => {
     storedData.data.checkout = {
       "sessionId": sessionData.id,
     };
-    console.log("storeData", storedData)
 
     await db.put('formDataStore', storedData, 'formData');
-    console.log("Updated formData saved to IndexedDB:", storedData);
 
     return storedData;
   }
