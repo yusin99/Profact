@@ -31,7 +31,6 @@ const SuccessPage = () => {
 
         // Upload the form data
         const response = await uploadFormData(formData);
-        console.log('Upload response:', response);
       } catch (error) {
         console.error('Error:', error);
       } finally {

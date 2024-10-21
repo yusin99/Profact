@@ -12,13 +12,14 @@ import { PopupWidget } from 'react-calendly';
 
 
 function App() {
+  const calendlyLink = import.meta.env.VITE_CALENDLY_LINK
   useEffect(() => {
     authenticate();
   }, []); 
   return (
     <Router>
       <PopupWidget
-          url="https://calendly.com/sunkatabeckama"
+          url={calendlyLink}
           rootElement={document.getElementById("root")}
           text="Prenez un rendez-vous!"
           textColor="#ffffff"
