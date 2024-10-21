@@ -56,7 +56,7 @@ function MultiPartForm({ offerTitle, offerPrice, offerPeriod, offerFeatures, off
         const fetchedPriceIds = await fetchSubscriptionPlans();
         const selectedOffer = fetchedPriceIds.find(offer => offer.id === offerId);
         if (selectedOffer) {
-          setPriceId(selectedOffer.id);
+          setPriceId(selectedOffer);
           console.log(selectedOffer.id)
         } else {
           console.error('Offer not found');
@@ -267,13 +267,13 @@ const onSubmit = async (event) => {
 
   try {
     // Get the correct priceId based on the offerTitle
-    console.log(priceId + "HI")
+    console.log(priceId)
 
     if (!priceId) {
       throw new Error('Invalid offer title or missing price ID');
     }
 
-    const { sessionId } = await createCheckoutSession(priceId);
+    const { sessionId } = await createCheckoutSession(priceId.code);
 
     // Set a flag in sessionStorage to allow access to success/cancel pages
     sessionStorage.setItem('checkoutInProgress', 'true');
