@@ -69,8 +69,8 @@ const SuccessPage = () => {
           <div className="cardSuccessBody">
             <i className="checkmark">✓</i>
           </div>
-          <h1 className="h1Success">Success</h1>
-          <p>We received your purchase request;<br /> We'll be in touch shortly!</p>
+          <h1 className="h1Success">Succès</h1>
+          <p>Nous avons bien reçu votre demande d'achat ;<br /> Nous vous contacterons sous peu !</p>
           <Link to="/" className="buttonToHome">Accueil</Link>
         </div>
       )}
