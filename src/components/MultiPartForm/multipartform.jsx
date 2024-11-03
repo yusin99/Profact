@@ -269,7 +269,7 @@ const onSubmit = async (event) => {
       throw new Error('Invalid offer title or missing price ID');
     }
 
-    const { sessionId } = await createCheckoutSession(priceId.code);
+    const { sessionId } = await createCheckoutSession(priceId.code, formData.nomSociete, formData.email);
 
     // Set a flag in sessionStorage to allow access to success/cancel pages
     sessionStorage.setItem('checkoutInProgress', 'true');
