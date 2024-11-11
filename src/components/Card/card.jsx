@@ -24,6 +24,7 @@ const Card = ({ pack, button }) => {
               <span className="currency">€</span>
             </div>
             <span className="period">Tarif mensuel (€ HT)</span>
+            <span className="period">*engagement 12 mois</span>
             {pack.fraisParametrage && <div className="periodOneTime">( Frais de paramétrage {pack.fraisParametrage}€ HT)</div>}
             </div>
           {/* <ul className="list">

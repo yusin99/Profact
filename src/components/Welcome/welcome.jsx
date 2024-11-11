@@ -14,7 +14,12 @@ function Welcome({ h1, paragraph, buttonText, lien }) {
           <div className="row" style={{ justifyContent: "center" }}>
             <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12">
               <h1>{h1}</h1>
-              {paragraph && <p>{paragraph}</p>} {lien && <span><strong><a href={lien} target='_blank'>Vos Factures</a></strong></span>}
+              {paragraph && <p>{paragraph}</p>} {lien && 
+              <span>
+                <strong>
+                  <a href={lien} target='_blank'><img src="//app.vosfactures.fr/recommande-vosfactures-white.png" alt="Je recommande VosFactures ! Le meilleur logiciel de facturation en ligne."/></a>
+                </strong>
+              </span>}
               <div className='button-margin'>
 
               {buttonText && (

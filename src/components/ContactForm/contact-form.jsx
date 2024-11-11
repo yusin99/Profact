@@ -76,12 +76,12 @@ function ContactForm() {
         <div className="contact-form-placement row">
           <div className="col-lg-12">
             <div className="center-heading">
-              <h2 className="section-title">Formulaire de contacte</h2>
+              <h2 className="section-title">Formulaire de contact</h2>
             </div>
           </div>
           <div className="col-lg-6">
             <div className="center-text">
-              <p>Maecenas pellentesque ante faucibus lectus vulputate sollicitudin. Cras feugiat hendrerit semper.</p>
+              {/* <p>Maecenas pellentesque ante faucibus lectus vulputate sollicitudin. Cras feugiat hendrerit semper.</p> */}
             </div>
           </div>
         </div>
