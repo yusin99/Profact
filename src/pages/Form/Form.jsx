@@ -78,7 +78,7 @@ function Form() {
       <MultiPartForm 
         offerTitle={selectedOffer.libelle} // Use `libelle` as the offer title
         offerPrice={selectedOffer.montantHt} // Use `montantHt` for the price
-        offerPeriod="monthly" // Example static period, modify as needed
+        offerPeriod="mensuel" // Example static period, modify as needed
         offerId={selectedOffer.id}
         offerFeatures={selectedOffer.features || []} // Assuming `features` exist, otherwise default to empty array
       />

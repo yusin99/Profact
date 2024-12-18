@@ -9,6 +9,7 @@ import CGU from './pages/CGU/cgu';
 import ProtectedRoute from './context/protected';
 import { authenticate } from './services/apiServices';
 import { PopupWidget } from 'react-calendly';
+import RecapPage from './pages/RecapPage/recap-page';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/cancel" element={<ProtectedRoute element={<CancelPage />} />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/cgu" element={<CGU />} />
+        <Route path="/recap" element={<RecapPage />} />
         
       </Routes>
     </Router>

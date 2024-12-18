@@ -51,6 +51,9 @@ contact
   resize: none;
   padding: 20px;
 }
+input[type="checkbox"] {
+  appearance: checkbox !important;
+}
 
 .contact-form select {
   height: 50px;
