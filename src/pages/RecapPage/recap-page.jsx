@@ -19,8 +19,7 @@ function RecapPage() {
     const navigate = useNavigate();
 
     // Check if state is passed, if not, redirect back
-    const { formData, files, offerTitle, offerPrice, offerPeriod, offerId } = location.state || {};
-
+    const { formData, files, offerTitle, offerPrice, offerPeriod, offerId, fraisParametrage } = location.state || {};
     const [priceId, setPriceId] = useState(null);
     const [isWithdrawalWaiverChecked, setIsWithdrawalWaiverChecked] = useState(false);
     const [hasSeenWarning, setHasSeenWarning] = useState(false);
@@ -85,6 +84,7 @@ function RecapPage() {
             data: {
                 ...formData,
                 creditAbonnement: parseInt(formData.creditAbonnement, 10),
+                refusDroitRetraction: isWithdrawalWaiverChecked,
             },
             ...filesBase64,
         };
@@ -107,7 +107,8 @@ function RecapPage() {
             const { sessionId } = await createCheckoutSession(
                 priceId.code,
                 formData.nomSociete,
-                formData.email
+                formData.email,
+                fraisParametrage
             );
 
             // Set a flag in sessionStorage to allow access to success/cancel pages

@@ -10,15 +10,18 @@ import ProtectedRoute from './context/protected';
 import { authenticate } from './services/apiServices';
 import { PopupWidget } from 'react-calendly';
 import RecapPage from './pages/RecapPage/recap-page';
+import Header from './components/Header/header';
+import Footer from './components/Footer/footer';
 
 
 function App() {
   const calendlyLink = import.meta.env.VITE_CALENDLY_LINK
   useEffect(() => {
-    authenticate();
+    // authenticate();
   }, []); 
   return (
     <Router>
+      <Header/>
       <PopupWidget
           url={calendlyLink}
           rootElement={document.getElementById("root")}
@@ -36,6 +39,7 @@ function App() {
         <Route path="/recap" element={<RecapPage />} />
         
       </Routes>
+      <Footer/>
     </Router>
   );
 }

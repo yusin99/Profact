@@ -38,9 +38,7 @@ function Form() {
   if (error) {
     return (
       <div className="wrapper">
-        <Header />
         <div>{error}</div>
-        <Footer />
       </div>
     );
   }
@@ -51,16 +49,13 @@ function Form() {
   if (!selectedOffer) {
     return (
       <div className="wrapper">
-        <Header />
         <div>Offer not found.</div>
-        <Footer />
       </div>
     );
   }
 
   return (
     <div className="wrapper">
-      <Header />
       <Welcome 
         h1={tarificationWelcomeText.h1} // Use staticInfo for welcome text
         paragraph={tarificationWelcomeText.paragraph} 
@@ -81,8 +76,8 @@ function Form() {
         offerPeriod="mensuel" // Example static period, modify as needed
         offerId={selectedOffer.id}
         offerFeatures={selectedOffer.features || []} // Assuming `features` exist, otherwise default to empty array
+        fraisParametrage={selectedOffer.fraisParametrage}
       />
-      <Footer />
     </div>
   );
 }

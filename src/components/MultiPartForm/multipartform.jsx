@@ -24,6 +24,7 @@ function MultiPartForm({
     offerPeriod,
     offerFeatures,
     offerId,
+    fraisParametrage
 }) {
     const [step, setStep] = useState(1);
     const [priceId, setPriceId] = useState(null);
@@ -65,6 +66,7 @@ function MultiPartForm({
         const fetchPriceId = async () => {
             try {
                 const fetchedPriceIds = await fetchSubscriptionPlans();
+                console.log(fetchedPriceIds)
                 const selectedOffer = fetchedPriceIds.find(
                     (offer) => offer.id === offerId
                 );
@@ -214,18 +216,29 @@ function MultiPartForm({
         }
 
         if (step === 4) {
+            // Check for all required files
+            const missingFiles = [];
+            if (!files.cachet) missingFiles.push("Cachet");
+            if (!files.kbis) missingFiles.push("Kbis");
+            if (!files.rib) missingFiles.push("RIB");
+            if (!files.cni) missingFiles.push("CNI");
+    
+            if (missingFiles.length > 0) {
+                errors.push(`Les fichiers suivants sont manquants : ${missingFiles.join(", ")}`);
+            }
+    
             if (!/^\d+(\.\d{1,2})?$/.test(formData.tauxHoraireHt)) {
                 errors.push(
                     "Le taux horaire HT doit être un nombre décimal avec maximum 2 décimales (ex: 45.50)."
                 );
             }
-
+    
             if (!/^\d{4}-\d{2}-\d{2}$/.test(formData.dateEditionKbis)) {
                 errors.push(
                     "La date d'édition du Kbis doit être au format YYYY-MM-DD."
                 );
             }
-
+    
             if (!/^\d+$/.test(formData.creditAbonnement)) {
                 errors.push(
                     "Le crédit d'abonnement doit être un nombre entier sans décimales."
@@ -264,7 +277,6 @@ function MultiPartForm({
      * submission is successful.
      */
     const onSubmit = async (event) => {
-        console.log(event);
         event.preventDefault();
 
         if (!validateStep()) return;
@@ -323,7 +335,8 @@ function MultiPartForm({
             const { sessionId } = await createCheckoutSession(
                 priceId.code,
                 formData.nomSociete,
-                formData.email
+                formData.email,
+                formData.fraisParametrage
             );
 
             // Set a flag in sessionStorage to allow access to success/cancel pages
@@ -513,12 +526,12 @@ function MultiPartForm({
                                         </div>
                                         <div className="col-lg-6 col-md-12 col-sm-12">
                                             <fieldset>
-                                                <label>Capital</label>
+                                                <label>Capital social</label>
                                                 <input
                                                     name="capital"
                                                     type="text"
                                                     className="form-control"
-                                                    placeholder="Capital"
+                                                    placeholder="Capital social"
                                                     value={formData.capital}
                                                     onChange={handleChange}
                                                     required
@@ -748,7 +761,7 @@ function MultiPartForm({
                                         <div className="col-lg-6 col-md-12 col-sm-12">
                                             <fieldset>
                                                 <label>
-                                                    CNI Dirigeant (PNG/JPG)
+                                                    CNI Recto/Verso du Dirigeant (PNG/JPG)
                                                 </label>
                                                 <input
                                                     name="cni"
@@ -761,34 +774,57 @@ function MultiPartForm({
                                             </fieldset>
                                         </div>
                                         <div className="buttons-container col-lg-12">
-                                            <fieldset>
-                                                <button
-                                                    type="button"
-                                                    onClick={handlePrevious}
-                                                    className="main-button"
-                                                >
-                                                    Retour
-                                                </button>
-                                                <Link
-                                                    to="/recap"
-                                                    state={{
-                                                        formData,
-                                                        files,
-                                                        offerTitle,
-                                                        offerPrice,
-                                                        offerPeriod,
-                                                        withdrawalWaiver,
-                                                        offerId
-                                                    }}
-                                                    className="main-button"
-                                                >
-                                                    Voir Récapitulatif
-                                                </Link>
-                                                {/* <button type="submit" className="main-button">
-                          Suivant
-                        </button> */}
-                                            </fieldset>
-                                        </div>
+    <fieldset>
+        <button
+            type="button"
+            onClick={handlePrevious}
+            className="main-button"
+        >
+            Retour
+        </button>
+        {step === 4 && (
+            // Check all step 4 validations
+            files.cachet && 
+            files.kbis && 
+            files.rib && 
+            files.cni &&
+            /^\d+(\.\d{1,2})?$/.test(formData.tauxHoraireHt) &&
+            /^\d{4}-\d{2}-\d{2}$/.test(formData.dateEditionKbis) &&
+            /^\d+$/.test(formData.creditAbonnement) ? (
+                <Link
+                    to="/recap"
+                    state={{
+                        formData,
+                        files,
+                        offerTitle,
+                        offerPrice,
+                        offerPeriod,
+                        withdrawalWaiver,
+                        offerId,
+                        fraisParametrage
+                    }}
+                    className="main-button"
+                >
+                    Voir Récapitulatif
+                </Link>
+            ) : (
+                <button 
+                    className="main-button disabled" 
+                    disabled
+                    onClick={() => {
+                        Swal.fire({
+                            title: "Erreur",
+                            text: "Veuillez remplir correctement tous les champs et télécharger tous les fichiers requis avant de continuer",
+                            icon: "error",
+                        });
+                    }}
+                >
+                    Voir Récapitulatif
+                </button>
+            )
+        )}
+    </fieldset>
+</div>
                                     </div>
                                 )}
 

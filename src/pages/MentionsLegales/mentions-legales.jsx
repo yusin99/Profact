@@ -12,7 +12,6 @@ function MentionsLegales() {
 
   return (
     <div className="wrapper">
-      <Header />
       <Welcome h1={mentionsLegalesWelcomeText.h1} paragraph={mentionsLegalesWelcomeText.paragraph}/>
       
       <h2>Mentions Légales</h2>
@@ -25,7 +24,6 @@ function MentionsLegales() {
         ))}
       </div>
       
-      <Footer />
     </div>
   );
 }

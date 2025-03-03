@@ -32,7 +32,6 @@ function Home() {
   }, []);
   return (
     <div className="wrapper">
-      <Header />
       <Welcome h1={homeWelcomeText.h1} paragraph={homeWelcomeText.paragraph} buttonText={homeWelcomeText.buttonText}/>
       <SmallFeature />
       <BigFeatureLeft title={features.bigFeatureOne.title} text={features.bigFeatureOne.text} image={features.bigFeatureOne.image} />
@@ -45,7 +44,6 @@ function Home() {
       {pricingPlans && <Tarification staticInfo={{ pricingPlans, otherInfo }} />}
       <Demonstration />
       <ContactForm />
-      <Footer />
     </div>
   );
 }

@@ -88,7 +88,7 @@ export const uploadFormData = async (formData) => {
  * @returns {Promise<Object>} - A promise that resolves to the JSON response containing the checkout session details.
  * @throws {Error} - Throws an error if the HTTP request fails or the session creation is unsuccessful.
  */
-export const createCheckoutSession = async (priceId, name, email) => {
+export const createCheckoutSession = async (priceId, name, email, fraisParametrage) => {
   const token = await getAuthToken();
   const response = await fetch(import.meta.env.VITE_API_CHECKOUT_ENDPOINT, {
     method: 'POST',
@@ -101,7 +101,7 @@ export const createCheckoutSession = async (priceId, name, email) => {
       priceId: priceId,
       customerName: name,
       customerEmail: email,
-      fraisParametrage: 2000,
+      fraisParametrage: fraisParametrage,
     }),
   });
 
@@ -178,9 +178,6 @@ export async function authenticate() {
  * @returns {Promise<string>} - A promise that resolves to the authentication token.
  */
 export async function getAuthToken() {
-  let token = await getToken();
-  if (!token) {
-    token = await authenticate();
-  }
+  let token = await authenticate();
   return token;
 }
